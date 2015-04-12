@@ -1,0 +1,12 @@
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.DL\bin\Debug\ProWorldz.DL.dll.config
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.DL\bin\Debug\ProWorldz.DL.dll
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.DL\bin\Debug\ProWorldz.DL.pdb
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.DL\bin\Debug\EntityFramework.dll
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.DL\bin\Debug\EntityFramework.SqlServer.dll
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.DL\bin\Debug\EntityFramework.xml
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.DL\bin\Debug\EntityFramework.SqlServer.xml
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.Migrations.sp1.resources
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.Migrations.sp2.resources
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.csproj.GenerateResource.Cache
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.dll
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.pdb

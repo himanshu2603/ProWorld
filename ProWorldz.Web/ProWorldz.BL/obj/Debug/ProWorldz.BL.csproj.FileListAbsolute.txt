@@ -1,0 +1,9 @@
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.BL.dll
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.BL.pdb
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.DL.dll
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.BL\bin\Debug\EntityFramework.dll
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.DL.pdb
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.BL\bin\Debug\EntityFramework.xml
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.csprojResolveAssemblyReference.cache
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.dll
+E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.pdb
