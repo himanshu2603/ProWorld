@@ -18,5 +18,7 @@ namespace ProWorldz.DL.Models
 
         [ForeignKey("Country")]//check unique user name
         public int CountryId { get; set; }
+
+        public virtual Country Country { get; set; }
     }
 }

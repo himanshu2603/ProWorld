@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201503081752108_sp2.Designer.cs">
       <DependentUpon>201503081752108_sp2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504131100103_1.cs" />
+    <Compile Include="Migrations\201504131100103_1.Designer.cs">
+      <DependentUpon>201504131100103_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseClass.cs" />
     <Compile Include="Models\City.cs" />
@@ -75,6 +79,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503081752108_sp2.resx">
       <DependentUpon>201503081752108_sp2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504131100103_1.resx">
+      <DependentUpon>201504131100103_1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

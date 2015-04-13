@@ -10,7 +10,7 @@ namespace ProWorldz.DL.Models
     public class Country : BaseClass
     {
         [Key]
-        public int Id { get; set; }
+        public int CountryId { get; set; }
 
         [Required]//check unique user name
         public string Name { get; set; }

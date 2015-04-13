@@ -52,9 +52,21 @@ namespace ProWorldz.BL.BusinessLayer
                 Id=model.Id,
                 Name = model.Name,
                 Email = model.Email,
+                Password=model.Password,
+                UserTypeId=model.UserTypeId,
+                DOB=model.DOB,
+                Gender=model.Gender,
+                CommunityId=model.CommunityId,
+                CommunityName=model.CommunityName,
+                SubCommunityId=model.SubCommunityId,
+                SubCommunityName=model.SubCommunityName,
                 Active = model.Active,
+                CreationDate=model.CreationDate,
+                CreatedBy=model.CreatedBy,
                 ModifiedBy = model.ModifiedBy,
                 ModificationDate = model.ModificationDate
+
+
 
             };
         }
@@ -63,12 +75,21 @@ namespace ProWorldz.BL.BusinessLayer
         {
             return new UserBM()
             {
-                Id=model.Id,
+                Id = model.Id,
                 Name = model.Name,
                 Email = model.Email,
+                Password = model.Password,
+                UserTypeId = model.UserTypeId,
+                DOB = model.DOB,
+                Gender = model.Gender,
+                CommunityId = model.CommunityId,
+                CommunityName = model.CommunityName,
+                SubCommunityId = model.SubCommunityId,
+                SubCommunityName = model.SubCommunityName,
                 Active = model.Active,
                 ModifiedBy = model.ModifiedBy,
                 ModificationDate = model.ModificationDate
+
 
             };
         }

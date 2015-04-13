@@ -16,9 +16,16 @@ namespace ProWorldz.BL.BusinessModel
 
         public string Password { get; set; }
 
+        public int UserTypeId { get; set; }
+
+        public DateTime DOB { get; set; }
+
+
         public bool Active { get; set; }
 
         public bool Deleted { get; set; }
+
+        public string Gender { get; set; }
 
         public System.DateTime CreationDate { get; set; }
 
@@ -27,5 +34,14 @@ namespace ProWorldz.BL.BusinessModel
         public int CreatedBy { get; set; }
 
         public Nullable<int> ModifiedBy { get; set; }
+
+
+        public int CommunityId { get; set; }
+
+        public int SubCommunityId { get; set; }
+
+        public int CommunityName { get; set; }
+
+        public int SubCommunityName { get; set; }
     }
 }

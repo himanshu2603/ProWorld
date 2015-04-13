@@ -14,9 +14,9 @@ namespace ProWorldz.DL
         { }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<User> Countries { get; set; }
-        public DbSet<User> Cities { get; set; }
-        public DbSet<User> Communities { get; set; }
-        public DbSet<User> UserTypes { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Community> Communities { get; set; }
+        public DbSet<UserType> UserTypes { get; set; }
     }
 }

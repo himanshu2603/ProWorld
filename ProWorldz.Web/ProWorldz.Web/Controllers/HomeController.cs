@@ -14,19 +14,25 @@ namespace ProWorldz.Web.Controllers
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
+            UserBL userBL = new UserBL();
 
-            //UserBL objBL = new UserBL();
-            //UserBM objBM = new UserBM();
-
-            //objBM.Name = "Nitin";
-            //objBM.Email = "nitinkumar0107@gmail.com";
-            //objBM.Active = true;
-            //objBM.Deleted = false;
-            //objBM.CreatedBy = 1;
-            //objBM.Password = "123456";
-
-            //objBL.CreateUser(objBM);
-
+            UserBM userBM = new UserBM();
+            userBM.Name = "Himanshu";
+            userBM.Email = "test@test.com";
+            userBM.Password = "123123";
+            userBM.UserTypeId = 1;
+            userBM.DOB = DateTime.Now.Date;
+            userBM.CreationDate =  DateTime.Now.Date;
+            userBM.ModificationDate = DateTime.Now.Date;
+            userBM.Gender = "M";
+            userBM.Active = true;
+            userBM.CommunityId = 1;
+            userBM.SubCommunityId = 1;
+            userBM.CommunityName = 1;
+            userBM.SubCommunityName = 1;
+            userBM.CreatedBy = 1;
+            userBM.ModifiedBy = 1;
+         //   userBL.Create(userBM);
             return View();
         }
 
