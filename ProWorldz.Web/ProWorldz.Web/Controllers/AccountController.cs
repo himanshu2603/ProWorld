@@ -13,14 +13,13 @@ using ProWorldz.Web.Models;
 
 namespace ProWorldz.Web.Controllers
 {
-    [Authorize]
-    [InitializeSimpleMembership]
+   
     public class AccountController : Controller
     {
         //
         // GET: /Account/Login
 
-        [AllowAnonymous]
+       
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
