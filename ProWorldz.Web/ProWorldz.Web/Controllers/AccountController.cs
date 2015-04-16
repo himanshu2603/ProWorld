@@ -10,6 +10,8 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using ProWorldz.Web.Filters;
 using ProWorldz.Web.Models;
+using ProWorldz.BL.BusinessLayer;
+using ProWorldz.BL.BusinessModel;
 
 namespace ProWorldz.Web.Controllers
 {
@@ -62,34 +64,44 @@ namespace ProWorldz.Web.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+
+            UserModel Model = new UserModel();
+            CommunityBL CommunityBL=new BL.BusinessLayer.CommunityBL();
+
+            Model.CommunityList = CommunityBL.GetCommunity().Where(o=>o.ParentId==0).ToList();
+
+            Model.SubCommunityList = CommunityBL.GetCommunity().Where(o => o.ParentId != 0).ToList();
+            return View(Model);
         }
 
         //
         // POST: /Account/Register
 
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterModel model)
+        public ActionResult Test(UserModel model)
         {
-            if (ModelState.IsValid)
-            {
-                // Attempt to register the user
-                try
-                {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
-                }
-                catch (MembershipCreateUserException e)
-                {
-                    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
-                }
-            }
 
+            UserBL userBL = new UserBL();
+            UserBM userBM = new UserBM();
+            userBM.Name = model.Name;
+            userBM.Email = model.Email;
+            userBM.Password = model.Password;
+            userBM.UserTypeId = 1;
+            userBM.DOB = model.DOB;
+            userBM.CreationDate = DateTime.Now.Date;
+            userBM.ModificationDate = DateTime.Now.Date;
+            userBM.Gender = "M";
+            userBM.Active = true;
+            userBM.CommunityId = model.CommunityId;
+            userBM.SubCommunityId = model.SubCommunityId;
+            userBM.CommunityName = 1;
+            userBM.SubCommunityName = 1;
+            userBM.CreatedBy = 1;
+            userBM.ModifiedBy = 1;
+
+            userBL.Create(userBM);
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return RedirectToAction("Register");
         }
 
         //

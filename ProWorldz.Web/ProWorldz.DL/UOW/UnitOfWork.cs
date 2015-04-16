@@ -16,6 +16,7 @@ namespace ProWorldz.DL.UOW
 
         private GenericRepository<User> userRepository;
         private GenericRepository<Country> countryRepository;
+        private GenericRepository<Community> communityRepository;
 
         public GenericRepository<User> UserRepository
         {
@@ -34,6 +35,16 @@ namespace ProWorldz.DL.UOW
                 if (countryRepository == null)
                     countryRepository = new GenericRepository<Country>(Context);
                 return countryRepository;
+            }
+        }
+
+        public GenericRepository<Community> CommunityRepository
+        {
+            get
+            {
+                if (communityRepository == null)
+                    communityRepository = new GenericRepository<Community>(Context);
+                return communityRepository;
             }
         }
      
