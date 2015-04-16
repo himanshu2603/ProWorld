@@ -16,3 +16,12 @@ D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\EntityFramework.xml
 D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.csprojResolveAssemblyReference.cache
 D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.dll
 D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.pdb
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.BL.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.BL.pdb
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.DL.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\EntityFramework.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.DL.pdb
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\EntityFramework.xml
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.csprojResolveAssemblyReference.cache
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.pdb
