@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\CommunityBL.cs" />
     <Compile Include="BusinessLayer\UserBL.cs" />
+    <Compile Include="BusinessModel\CommunityBM.cs" />
     <Compile Include="BusinessModel\UserBM.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
