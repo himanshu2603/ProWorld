@@ -21,32 +21,60 @@ namespace ProWorldz.Web.Controllers
         //
         // GET: /Account/Login
 
-       
+        public ActionResult Test()
+        {
+
+            UserModel Model = new UserModel();
+
+            //    List<string> mylist = new List<string>({Id= "element1",Name= "element2" });
+            CommunityBL CommunityBL = new BL.BusinessLayer.CommunityBL();
+
+            Model.CommunityList = CommunityBL.GetCommunity().Where(o => o.ParentId == 0).ToList();
+
+            Model.SubCommunityList = CommunityBL.GetCommunity().Where(o => o.ParentId != 0).ToList();
+            return View(Model);
+        }
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            LoginModel model = new LoginModel();
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult LoginUser(LoginModel Model)
+        {
+            UserBL UserBL=new BL.BusinessLayer.UserBL();
+            UserBM User = UserBL.GetUsers().Where(p => p.Email == Model.Email && p.Password == Model.Password).FirstOrDefault();
+            if (User != null)
+            {
+                Session["User"] = User;
+                FormsAuthentication.SetAuthCookie(User.Name, false);
+               return RedirectToAction("Profile");
+            }
+            else
+            {
+                TempData["Error"] = "Invalid username and password";
+              return  RedirectToAction("Login");
+            }
+
+            return RedirectToAction("Login");
+        }
+
+        public ActionResult Profile()
+        {
+
+            if (Session["User"] != null)
+            {
+                UserBM user = (UserBM)Session["User"];
+                LoginModel model = new LoginModel();
+                return View(user);
+            }
+          return  RedirectToAction("Login");
         }
 
         //
         // POST: /Account/Login
 
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginModel model, string returnUrl)
-        {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
-            {
-                return RedirectToLocal(returnUrl);
-            }
-
-            // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
-            return View(model);
-        }
-
-        //
+      
         // POST: /Account/LogOff
 
         [HttpPost]
@@ -66,6 +94,8 @@ namespace ProWorldz.Web.Controllers
         {
 
             UserModel Model = new UserModel();
+
+        //    List<string> mylist = new List<string>({Id= "element1",Name= "element2" });
             CommunityBL CommunityBL=new BL.BusinessLayer.CommunityBL();
 
             Model.CommunityList = CommunityBL.GetCommunity().Where(o=>o.ParentId==0).ToList();
@@ -78,7 +108,7 @@ namespace ProWorldz.Web.Controllers
         // POST: /Account/Register
 
         [HttpPost]
-        public ActionResult Test(UserModel model)
+        public ActionResult Test(UserModel model,FormCollection collection)
         {
 
             UserBL userBL = new UserBL();
@@ -86,10 +116,12 @@ namespace ProWorldz.Web.Controllers
             userBM.Name = model.Name;
             userBM.Email = model.Email;
             userBM.Password = model.Password;
-            userBM.UserTypeId = 1;
-            userBM.DOB = model.DOB;
+            userBM.UserTypeId =Convert.ToInt32( collection["UserType"].ToString());
+            userBM.DOB = DateTime.Now;
             userBM.CreationDate = DateTime.Now.Date;
             userBM.ModificationDate = DateTime.Now.Date;
+
+            string gender = collection["gender"].ToString();
             userBM.Gender = "M";
             userBM.Active = true;
             userBM.CommunityId = model.CommunityId;

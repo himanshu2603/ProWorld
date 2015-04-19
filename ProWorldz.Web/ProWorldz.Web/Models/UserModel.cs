@@ -12,7 +12,7 @@ namespace ProWorldz.Web.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Name enter please")]
         public string Name { get; set; }
         [Required]
         [EmailAddress]

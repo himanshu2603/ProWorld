@@ -18,5 +18,15 @@ namespace ProWorldz.DL
         public DbSet<City> Cities { get; set; }
         public DbSet<Community> Communities { get; set; }
         public DbSet<UserType> UserTypes { get; set; }
+
+        public DbSet<State> State { get; set; }
+        public DbSet<UserPost> UserPost { get; set; }
+        public DbSet<UserPostComment> UserPostComment { get; set; }
+        public DbSet<UserQualification> UserQualification { get; set; }
+        public DbSet<UserPersonalInfomation> UserPersonalInfomation { get; set; }
+        public DbSet<UserGeneralInfomation> UserGeneralInfomation { get; set; }
+
+        public DbSet<UserProfessionalQualification> UserProfessionalQualification { get; set; }
+
     }
 }

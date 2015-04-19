@@ -8,17 +8,18 @@ using System.Threading.Tasks;
 
 namespace ProWorldz.DL.Models
 {
-    public class City :BaseClass
+   public class UserPost: BaseClass
     {
         [Key]
         public int Id { get; set; }
 
-        [Required]//check unique user name
-        public string Name { get; set; }
+        [ForeignKey("User")]//check unique user name
+        public int UserId { get; set; }
 
-        [ForeignKey("State")]//check unique user name
-        public int StateId { get; set; }
+        public string Subject { get; set; }
 
-        public virtual State State { get; set; }
+        public string Post { get; set; }
+
+        public virtual User User { get; set; }
     }
 }
