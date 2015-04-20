@@ -49,6 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Migrations\201504201803414_1.cs" />
+    <Compile Include="Migrations\201504201803414_1.Designer.cs">
+      <DependentUpon>201504201803414_1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseClass.cs" />
     <Compile Include="Models\City.cs" />
@@ -71,6 +75,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201504201803414_1.resx">
+      <DependentUpon>201504201803414_1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

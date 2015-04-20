@@ -12,7 +12,7 @@ namespace ProWorldz.DL.Models
     {
         [Key]
         public int StateId { get; set; }
-        [ForeignKey("Country")]
+      
         public int CountryId { get; set; }
 
       

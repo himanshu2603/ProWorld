@@ -34,3 +34,5 @@ F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\EntityFramework.SqlSer
 F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.csprojResolveAssemblyReference.cache
 F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.dll
 F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.pdb
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.Migrations._1.resources
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.csproj.GenerateResource.Cache

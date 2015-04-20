@@ -20,20 +20,20 @@ namespace ProWorldz.DL.Models
 
         public string Address2 { get; set; }
 
-       [ForeignKey("City")]
-        public int City { get; set; }
+       //[ForeignKey("City")]
+        public int CityId { get; set; }
 
-        [ForeignKey("State")]
-        public int State { get; set; }
+        //[ForeignKey("State")]
+        public int StateId { get; set; }
 
-        [ForeignKey("Country")]
-        public int Country { get; set; }
+       // [ForeignKey("Country")]
+    //    public int Country { get; set; }
 
         public string PhoneNumber { get; set; }
 
         public virtual User User { get; set; }
         public virtual City Cities { get; set; }
-        public virtual Country Countries { get; set; }
+       // public virtual Country Countries { get; set; }
 
         public virtual State States { get; set; }
     }
