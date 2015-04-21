@@ -61,12 +61,22 @@ namespace ProWorldz.Web.Controllers
 
         public ActionResult Profile()
         {
-
+            CommunityBL CommunityBL = new BL.BusinessLayer.CommunityBL();
+            CountryBL CountryBL = new BL.BusinessLayer.CountryBL();
+            StateBL StateBL = new BL.BusinessLayer.StateBL();
+            CityBL CityBL = new BL.BusinessLayer.CityBL();
+            ProfileModel Model = new ProfileModel();
             if (Session["User"] != null)
             {
-                UserBM user = (UserBM)Session["User"];
-                LoginModel model = new LoginModel();
-                return View(user);
+                Model.CommunityList = CommunityBL.GetCommunity().Where(o => o.ParentId == 0).ToList();
+
+                Model.SubCommunityList = CommunityBL.GetCommunity().Where(o => o.ParentId != 0).ToList();
+                Model.CountryList = CountryBL.GetCountry();
+                Model.StateList = StateBL.GetState();
+                Model.CityList = CityBL.GetCities();
+                //UserBM user = (UserBM)Session["User"];
+                //LoginModel model = new LoginModel();
+                return View(Model);
             }
           return  RedirectToAction("Login");
         }

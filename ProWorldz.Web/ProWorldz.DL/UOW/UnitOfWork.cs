@@ -16,6 +16,12 @@ namespace ProWorldz.DL.UOW
 
         private GenericRepository<User> userRepository;
         private GenericRepository<Country> countryRepository;
+
+        private GenericRepository<City> cityRepository;
+
+        private GenericRepository<State> stateRepository;
+
+
         private GenericRepository<Community> communityRepository;
 
         private GenericRepository<UserPost> userPostRepository;
@@ -77,6 +83,29 @@ namespace ProWorldz.DL.UOW
                 if (userQualificationRepository == null)
                     userQualificationRepository = new GenericRepository<UserQualification>(Context);
                 return userQualificationRepository;
+            }
+        }
+
+
+
+        public GenericRepository<City> CityRepository
+        {
+            get
+            {
+                if (cityRepository == null)
+                    cityRepository = new GenericRepository<City>(Context);
+                return cityRepository;
+            }
+        }
+
+
+        public GenericRepository<State> StateRepository
+        {
+            get
+            {
+                if (stateRepository == null)
+                    stateRepository = new GenericRepository<State>(Context);
+                return stateRepository;
             }
         }
 

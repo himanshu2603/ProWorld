@@ -11,7 +11,25 @@ namespace ProWorldz.Web.Models
 
     public class ProfileModel
     {
+        public UserGeneralInformationBM UserGeneralInformationModel { get; set; }
+        public UserPersonalInformationBM UserPersonalInformationModel { get; set; }
+        public UserProfessionalQualificationBM UserProfessionalQualificationModel { get; set; }
+        public UserQualificatinBM UserQualificatinModel { get; set; }
 
+        public List<CommunityBM> CommunityList { get; set; }
+        public List<CommunityBM> SubCommunityList { get; set; }
+
+        public List<CityBM> CityList { get; set; }
+        public List<StateBM> StateList { get; set; }
+        public List<CountryBM> CountryList { get; set; }
+        public ProfileModel()
+        {
+            UserGeneralInformationModel = new UserGeneralInformationBM();
+            UserPersonalInformationModel = new UserPersonalInformationBM();
+            UserProfessionalQualificationModel = new UserProfessionalQualificationBM();
+            UserQualificatinModel = new UserQualificatinBM();
+
+        }
     }
     public class UserModel
     {
