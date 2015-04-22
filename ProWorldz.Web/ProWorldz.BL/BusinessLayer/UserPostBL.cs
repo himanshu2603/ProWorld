@@ -65,6 +65,7 @@ namespace ProWorldz.BL.BusinessLayer
             {
                 Id = model.Id,
                UserId=model.UserId,
+               UserName=model.User.Name,
                Subject=model.Subject,
                Post=model.Post,
                CreatedBy=model.CreatedBy,

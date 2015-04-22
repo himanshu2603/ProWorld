@@ -20,7 +20,7 @@ namespace ProWorldz.Web.Controllers
     {
         //
         // GET: /Account/Login
-
+        UserGeneralInformationBL UserGeneralInformationBL = new BL.BusinessLayer.UserGeneralInformationBL();
         public ActionResult Test()
         {
 
@@ -68,24 +68,58 @@ namespace ProWorldz.Web.Controllers
             ProfileModel Model = new ProfileModel();
             if (Session["User"] != null)
             {
+
+                UserBM CurrentUser = (UserBM)Session["User"];
+               Model.UserGeneralInformationModel= UserGeneralInformationBL.GetGeneralInformationByUserId(CurrentUser.Id);
+               if (Model.UserGeneralInformationModel == null)
+                   Model.UserGeneralInformationModel = new UserGeneralInformationBM();
+               else
+               {
+                   Model.UserGeneralInformationModel.Image = Server.MapPath("~/Images/" + Model.UserGeneralInformationModel.Image);
+               }
+
                 Model.CommunityList = CommunityBL.GetCommunity().Where(o => o.ParentId == 0).ToList();
 
                 Model.SubCommunityList = CommunityBL.GetCommunity().Where(o => o.ParentId != 0).ToList();
                 Model.CountryList = CountryBL.GetCountry();
                 Model.StateList = StateBL.GetState();
                 Model.CityList = CityBL.GetCities();
-                //UserBM user = (UserBM)Session["User"];
-                //LoginModel model = new LoginModel();
+               
                 return View(Model);
             }
           return  RedirectToAction("Login");
         }
 
-        //
-        // POST: /Account/Login
+        public ActionResult UpdateGeneralInformation(ProfileModel Model, HttpPostedFileBase file)
+        {
+            UserBM CurrentUser = (UserBM)Session["User"];
+            if (CurrentUser != null)
+            {
+                if (file != null)
+                {
+                    UserGeneralInformationBL UserGeneralInformationBL = new BL.BusinessLayer.UserGeneralInformationBL();
 
-      
-        // POST: /Account/LogOff
+                    string ImageName = System.IO.Path.GetFileName(file.FileName);
+                    string physicalPath = Server.MapPath("~/Images/" + ImageName);
+                    file.SaveAs(physicalPath);
+                    UserGeneralInformationBM UserGeneralInformation = new UserGeneralInformationBM();
+                    UserGeneralInformation.CommunityId = Model.UserGeneralInformationModel.CommunityId;
+                    UserGeneralInformation.SubCommunityId = Model.UserGeneralInformationModel.SubCommunityId;
+                    UserGeneralInformation.Image = "~/Images/" + ImageName;
+                    UserGeneralInformation.UserId = CurrentUser.Id;
+                    UserGeneralInformation.CreatedBy = CurrentUser.Id;
+                    UserGeneralInformation.CreationDate = DateTime.Now;
+                    UserGeneralInformationBL.Create(UserGeneralInformation);
+                    TempData["Success"] = "Record saved Successfully.";
+                }
+            }
+            else
+            {
+                TempData["Error"] = "Please Login.";
+            }
+
+            return RedirectToAction("Profile");
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]

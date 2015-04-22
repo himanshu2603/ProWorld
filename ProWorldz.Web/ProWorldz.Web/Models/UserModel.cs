@@ -8,7 +8,17 @@ using System.Web;
 
 namespace ProWorldz.Web.Models
 {
+    public class BaseModel
+    {
+        public string SucessMessage { get; set; }
+        public string ErrorMessage { get; set; }
+    }
+    public class PostCommentModel:BaseModel
+    {
+        public UserPostBM UserPost { get; set; }
 
+        public List<UserPostBM> UserPostList { get; set; }
+    }
     public class ProfileModel
     {
         public UserGeneralInformationBM UserGeneralInformationModel { get; set; }

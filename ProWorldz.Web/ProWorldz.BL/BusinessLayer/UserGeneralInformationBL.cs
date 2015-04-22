@@ -32,7 +32,10 @@ namespace ProWorldz.BL.BusinessLayer
         {
             return ConvertToBM(uow.UserGeneralInfomationRepository.GetByID(id));
         }
-
+         public UserGeneralInformationBM GetGeneralInformationByUserId(int UserId)
+         {
+             return ConvertToBM(uow.UserGeneralInfomationRepository.Find(p=>p.UserId==UserId).FirstOrDefault());
+         }
         
          public void Update(UserGeneralInformationBM model)
         {
@@ -48,9 +51,10 @@ namespace ProWorldz.BL.BusinessLayer
                 CommunityId = model.CommunityId,
                 SubCommunityId = model.SubCommunityId,
                 Image = model.Image,
+                Active=model.Active, 
                 CreatedBy = model.CreatedBy,
                 CreationDate = model.CreationDate,
-
+                UserId=model.UserId,
                 ModifiedBy = model.ModifiedBy,
                 ModificationDate = model.ModificationDate
 
@@ -68,11 +72,11 @@ namespace ProWorldz.BL.BusinessLayer
               Image=model.Image,
               CreatedBy=model.CreatedBy,
               CreationDate=model.CreationDate,
-
+                UserId = model.UserId,
                 ModifiedBy = model.ModifiedBy,
                 ModificationDate = model.ModificationDate
 
-
+              
             };
         }
     }

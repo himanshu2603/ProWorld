@@ -53,7 +53,7 @@
             <!-- Panes -->
             <div class="tab-content">
                 <div id="home4" class="tab-pane active">
-                    @using (Html.BeginForm("UpdateGeneralInformation", "Account", FormMethod.Post))
+                    @using (Html.BeginForm("UpdateGeneralInformation", "Account", FormMethod.Post,new { enctype = "multipart/form-data" }))
                     {
                          
                         <form class="form-horizontal" role="form">
@@ -62,10 +62,10 @@
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-3 control-label">Image</label>
                                 <div class="col-sm-9">
-                                    <input type="file" class="form-control" />
+                                    <input type="file"  class="form-control" name="file" id="file" value="@Model.UserGeneralInformationModel.Image" />
 
-                                    @*@Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Type here.." })*@
-
+                                    <img src="@Model.UserGeneralInformationModel.Image" />
+                                    
                                 </div>
                             </div>
 
@@ -76,8 +76,7 @@
                                 <label for="inputEmail3" class="col-sm-3 control-label">Community</label>
                                 <div class="col-sm-9">
                                     @Html.DropDownListFor(x => x.UserGeneralInformationModel.CommunityId, new SelectList(Model.CommunityList, "ID", "Name", Model.UserGeneralInformationModel.CommunityId), "- - Select - -", new { @class = "dropdown form-control" })
-                                    @*@Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Type here.." })*@
-
+                                   
                                 </div>
                             </div>
                             <br />
@@ -292,6 +291,20 @@
 
     </div>
 </body>
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // alert("hi")
+
+    })
+    function hideMessage(data) {
+        $(data).hide("slow")
+
+    }
+</script>
 
 
 

@@ -13,8 +13,8 @@ namespace ProWorldz.BL.BusinessModel
        
         public int CommunityId { get; set; }
 
-
-       
+        public bool Active { get; set; }
+        
         public int UserId { get; set; }
 
         public int SubCommunityId { get; set; }
