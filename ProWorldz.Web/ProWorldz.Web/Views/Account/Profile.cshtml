@@ -85,7 +85,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Sub Community</label>
                                 <div class="col-sm-9">
-                                    @Html.DropDownListFor(x => x.UserGeneralInformationModel.SubCommunityId, new SelectList(Model.CommunityList, "ID", "Name", Model.UserGeneralInformationModel.SubCommunityId), "- - Select - -", new { @class = "dropdown form-control" })
+                                    @Html.DropDownListFor(x => x.UserGeneralInformationModel.SubCommunityId, new SelectList(Model.SubCommunityList, "ID", "Name", Model.UserGeneralInformationModel.SubCommunityId), "- - Select - -", new { @class = "dropdown form-control" })
                                 </div>
                             </div>
                             <br />

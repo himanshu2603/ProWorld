@@ -266,3 +266,9 @@ F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\zh-Hant\System.Spatial.reso
 F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\obj\Debug\ProWorldz.Web.csprojResolveAssemblyReference.cache
 F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\obj\Debug\ProWorldz.Web.dll
 F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\obj\Debug\ProWorldz.Web.pdb
+D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Net.Http.Formatting.dll
+D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.Http.dll
+D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.Http.WebHost.dll
+D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Net.Http.Formatting.xml
+D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.Http.xml
+D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.Http.WebHost.xml
