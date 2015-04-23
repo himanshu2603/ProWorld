@@ -55,7 +55,7 @@ namespace ProWorldz.Web.Models
         public string ConfirmPassword { get; set; }
     }
 
-    public class LoginModel
+    public class LoginModel:BaseModel
     {
         [Required]
         [EmailAddress]

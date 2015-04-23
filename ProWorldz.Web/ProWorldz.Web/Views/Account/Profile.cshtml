@@ -6,7 +6,7 @@
 
 
 <body class="login">
-
+    
 
     <div id="content">
         <div class="container-fluid">
@@ -23,7 +23,20 @@
             </div>
         </div>
     </div>
-
+     <div class="clear-fix"></div>
+    @if (Model != null && !string.IsNullOrEmpty(Model.SucessMessage))
+    {
+        <div class="col-md-8" id="successMessage" onclick="hideMessage(this);">
+            <div class="alert alert-success" role="alert">@Model.SucessMessage</div>
+        </div>
+    }
+    @if (Model != null && !string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="col-md-8 id="errorMessage" onclick="hideMessage(this);">
+            <div class="alert alert-success" role="alert">@Model.ErrorMessage</div>
+        </div>
+    }
+    <div class="clear-fix"></div>
     <br />
     <br />
     <br />
@@ -62,10 +75,11 @@
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-3 control-label">Image</label>
                                 <div class="col-sm-9">
-                                    <input type="file"  class="form-control" name="file" id="file" value="@Model.UserGeneralInformationModel.Image" />
+                                    <input type="file"  class="form-control" name="file" id="file"  value="@Model.UserGeneralInformationModel.Image" />
 
-                                    <img src="@Model.UserGeneralInformationModel.Image" />
-                                    
+                                    <img src="@Model.UserGeneralInformationModel.Image" style="height:100px;width:100px" alt="Bill" class="img-circle" />
+                                   <br />
+                            <br />
                                 </div>
                             </div>
 
@@ -76,20 +90,27 @@
                                 <label for="inputEmail3" class="col-sm-3 control-label">Community</label>
                                 <div class="col-sm-9">
                                     @Html.DropDownListFor(x => x.UserGeneralInformationModel.CommunityId, new SelectList(Model.CommunityList, "ID", "Name", Model.UserGeneralInformationModel.CommunityId), "- - Select - -", new { @class = "dropdown form-control" })
-                                   
+                                       @Html.ValidationMessageFor(model => model.UserGeneralInformationModel.CommunityId)
                                 </div>
                             </div>
+                               <br />
+                            <br />
+                            <br />
+                            <br />  <br />
+                            <br />
                             <br />
                             <br />
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Sub Community</label>
                                 <div class="col-sm-9">
                                     @Html.DropDownListFor(x => x.UserGeneralInformationModel.SubCommunityId, new SelectList(Model.SubCommunityList, "ID", "Name", Model.UserGeneralInformationModel.SubCommunityId), "- - Select - -", new { @class = "dropdown form-control" })
-                                </div>
+                                @Html.ValidationMessageFor(model => model.UserGeneralInformationModel.SubCommunityId)
+                                     </div>
                             </div>
                             <br />
                             <br />
-
+                          
+                            <div class="clear-fix"></div>
                             <div class="form-group margin-none">
                                 <div class="col-sm-offset-3 col-sm-9">
                                     <button type="submit" class="btn btn-primary">Update</button>
@@ -108,7 +129,7 @@
                                 <label for="inputEmail3" class="col-sm-3 control-label">Country</label>
                                 <div class="col-sm-9">
                                     @Html.DropDownListFor(x => x.UserPersonalInformationModel.CountryId, new SelectList(Model.CountryList, "CountryId", "Name", Model.UserPersonalInformationModel.CountryId), "- - Select - -", new { @class = "dropdown form-control" })
-
+   @Html.ValidationMessageFor(model => model.UserPersonalInformationModel.CountryId)
                                 </div>
                             </div>
 
@@ -119,7 +140,8 @@
                                 <label class="col-sm-3 control-label">State</label>
                                 <div class="col-sm-9">
                                     @Html.DropDownListFor(x => x.UserPersonalInformationModel.StateId, new SelectList(Model.StateList, "StateId", "Name", Model.UserPersonalInformationModel.StateId), "- - Select - -", new { @class = "dropdown form-control" })
-                                </div>
+                                @Html.ValidationMessageFor(model => model.UserPersonalInformationModel.StateId)
+                                     </div>
                             </div>
                             <br />
                             <br />
@@ -128,16 +150,32 @@
                                 <label class="col-sm-3 control-label">City</label>
                                 <div class="col-sm-9">
                                     @Html.DropDownListFor(x => x.UserPersonalInformationModel.CityId, new SelectList(Model.CityList, "Id", "Name", Model.UserPersonalInformationModel.CityId), "- - Select - -", new { @class = "dropdown form-control" })
-                                </div>
+                              @Html.ValidationMessageFor(model => model.UserPersonalInformationModel.CityId)
+                                       </div>
                             </div>
                             <br />
                             <br />
+
+                             <br />
+                            <br />
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Phone</label>
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(x => x.UserPersonalInformationModel.Phone, new { @class = "dropdown form-control" })
+                              @Html.ValidationMessageFor(model => model.UserPersonalInformationModel.Phone)
+                                       </div>
+                            </div>
+                            <br />
+                            <br />
+
+
                             <br />
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Address 1</label>
                                 <div class="col-sm-9">
                                     @Html.TextAreaFor(model => model.UserPersonalInformationModel.Address1, new { @class = "form-control", @placeholder = "Address 1" })
-                                </div>
+                            
+                                       </div>
                             </div>
                             <br />
                             <br />
@@ -168,18 +206,20 @@
                                 <label for="inputEmail3" class="col-sm-3 control-label">Company Name</label>
                                 <div class="col-sm-9">
                                     @Html.TextBoxFor(model => model.UserProfessionalQualificationModel.CompanyName, new { @class = "form-control", @placeholder = "Company Name" })
-
+                                      @Html.ValidationMessageFor(model => model.UserProfessionalQualificationModel.CompanyName)
                                 </div>
                             </div>
                             <br />
                             <br />
                             <br />
 
+
+
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-3 control-label">Start date</label>
                                 <div class="col-sm-9">
                                     @Html.TextBoxFor(model => model.UserProfessionalQualificationModel.StartDate, new { @id = "datepicker", @class = "form-control datepicker", @placeholder = "Start Date" })
-
+                                      @Html.ValidationMessageFor(model => model.UserProfessionalQualificationModel.StartDate)
                                 </div>
                             </div>
                             <br />
@@ -189,7 +229,7 @@
                                 <label for="inputEmail3" class="col-sm-3 control-label">End Date</label>
                                 <div class="col-sm-9">
                                     @Html.TextBoxFor(model => model.UserProfessionalQualificationModel.EndDate, new { @class = "form-control datepicker", @placeholder = "End Date" })
-
+                                      @Html.ValidationMessageFor(model => model.UserProfessionalQualificationModel.EndDate)
                                 </div>
                             </div>
                             <br />
@@ -199,7 +239,7 @@
                                 <label for="inputEmail3" class="col-sm-3 control-label">Salary</label>
                                 <div class="col-sm-9">
                                     @Html.TextBoxFor(model => model.UserProfessionalQualificationModel.Salary, new { @class = "form-control", @placeholder = "Salary" })
-
+                                      @Html.ValidationMessageFor(model => model.UserProfessionalQualificationModel.Salary)
                                 </div>
                             </div>
                             <br />
@@ -242,7 +282,7 @@
                                 <label for="inputEmail3" class="col-sm-3 control-label">School Name</label>
                                 <div class="col-sm-9">
                                     @Html.TextBoxFor(model => model.UserQualificatinModel.SchoolName, new { @class = "form-control", @placeholder = "School Name" })
-
+                                      @Html.ValidationMessageFor(model => model.UserQualificatinModel.SchoolName)
                                 </div>
                             </div>
                             <br />
@@ -252,7 +292,7 @@
                                 <label for="inputEmail3" class="col-sm-3 control-label">Degree</label>
                                 <div class="col-sm-9">
                                     @Html.TextBoxFor(model => model.UserQualificatinModel.Degree, new { @class = "form-control", @placeholder = "Degree" })
-
+                                     @Html.ValidationMessageFor(model => model.UserQualificatinModel.Degree)
                                 </div>
                             </div>
 
@@ -264,6 +304,7 @@
                                 <div class="col-sm-9">
                                     @Html.TextBoxFor(model => model.UserQualificatinModel.Percentage, new { @class = "form-control", @placeholder = "Percentage" })
 
+                                     @Html.ValidationMessageFor(model => model.UserQualificatinModel.Percentage)
                                 </div>
                             </div>
                             <br />
@@ -297,7 +338,7 @@
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        // alert("hi")
+        //alert("hi")
 
     })
     function hideMessage(data) {

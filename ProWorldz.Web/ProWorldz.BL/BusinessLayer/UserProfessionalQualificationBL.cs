@@ -19,7 +19,11 @@ namespace ProWorldz.BL.BusinessLayer
         {
             uow = new UnitOfWork();
         }
-
+          public void Create(UserProfessionalQualificationBM model)
+          {
+              uow.UserProfessionalQualificationRepository.Add(ConvertToDM(model));
+              uow.Save();
+          }
 
           public List<UserProfessionalQualificationBM> GetProfessionalQualification()
         {

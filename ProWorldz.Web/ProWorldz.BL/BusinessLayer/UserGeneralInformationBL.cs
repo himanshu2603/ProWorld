@@ -34,6 +34,7 @@ namespace ProWorldz.BL.BusinessLayer
         }
          public UserGeneralInformationBM GetGeneralInformationByUserId(int UserId)
          {
+            
              return ConvertToBM(uow.UserGeneralInfomationRepository.Find(p=>p.UserId==UserId).FirstOrDefault());
          }
         
