@@ -199,12 +199,9 @@ D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\Microsoft.Web.Mvc.FixedDisp
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\Microsoft.Web.WebPages.OAuth.dll
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\Newtonsoft.Json.dll
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\ProWorldz.BL.dll
-D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Net.Http.Formatting.dll
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Spatial.dll
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.Helpers.dll
-D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.Http.dll
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.Http.OData.dll
-D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.Http.WebHost.dll
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.Mvc.dll
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.Optimization.dll
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.Razor.dll
@@ -219,10 +216,7 @@ D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\ProWorldz.BL.pdb
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\EntityFramework.xml
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\EntityFramework.SqlServer.xml
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\Newtonsoft.Json.xml
-D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Net.Http.Formatting.xml
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.Helpers.xml
-D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.Http.xml
-D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.Http.WebHost.xml
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.Mvc.xml
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.Razor.xml
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\System.Web.WebPages.xml

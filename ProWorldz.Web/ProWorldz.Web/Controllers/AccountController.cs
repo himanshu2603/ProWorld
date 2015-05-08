@@ -89,12 +89,29 @@ namespace ProWorldz.Web.Controllers
 
 
 
-               
+
+                List<UserPersonalInformationBM> PersoalInfoList = UserPersonalInformationBL.GetPersonalInformation().Where(p => p.UserId == CurrentUser.Id).ToList();
+                if (PersoalInfoList.Count > 0)
+                    Model.UserPersonalInformationModel = PersoalInfoList.FirstOrDefault();
+                if (Model.UserPersonalInformationModel == null)
+                    Model.UserPersonalInformationModel = new UserPersonalInformationBM();
+
+
+                List<UserProfessionalQualificationBM> ProfessionalQualificationInfoList = UserProfessionalQualificationBL.GetProfessionalQualification().Where(p => p.UserId == CurrentUser.Id).ToList();
+                if (ProfessionalQualificationInfoList.Count > 0)
+                    Model.UserProfessionalQualificationModel = ProfessionalQualificationInfoList.FirstOrDefault();
+                if (Model.UserProfessionalQualificationModel == null)
+                    Model.UserProfessionalQualificationModel = new UserProfessionalQualificationBM();
 
 
 
+                List<UserQualificatinBM> UserQualificatinModelList = UserQualificationBL.GetUserQualificatin().Where(p => p.UserId == CurrentUser.Id).ToList();
+                if (UserQualificatinModelList.Count > 0)
+                    Model.UserQualificatinModel = UserQualificatinModelList.FirstOrDefault();
+                if (Model.UserQualificatinModel == null)
+                    Model.UserQualificatinModel = new UserQualificatinBM();
 
-                
+
 
                 Model.CommunityList = CommunityBL.GetCommunity().Where(o => o.ParentId == 0).ToList();
 
@@ -264,7 +281,7 @@ namespace ProWorldz.Web.Controllers
         // POST: /Account/Register
 
         [HttpPost]
-        public ActionResult Test(UserModel model, FormCollection collection)
+        public ActionResult Signup(UserModel model, FormCollection collection)
         {
 
             UserBL userBL = new UserBL();
@@ -273,12 +290,13 @@ namespace ProWorldz.Web.Controllers
             userBM.Email = model.Email;
             userBM.Password = model.Password;
             userBM.UserTypeId = Convert.ToInt32(collection["UserType"].ToString());
-            userBM.DOB = DateTime.Now;
+            userBM.DOB =Convert.ToDateTime(model.DateOfBirth);
+          
             userBM.CreationDate = DateTime.Now.Date;
             userBM.ModificationDate = DateTime.Now.Date;
 
-            string gender = collection["gender"].ToString();
-            userBM.Gender = "M";
+            userBM.Gender = collection["gender"].ToString();
+     
             userBM.Active = true;
             userBM.CommunityId = model.CommunityId;
             userBM.SubCommunityId = model.SubCommunityId;
@@ -288,8 +306,9 @@ namespace ProWorldz.Web.Controllers
             userBM.ModifiedBy = 1;
 
             userBL.Create(userBM);
+            TempData["Successs"] = "User Registered Successfully";
             // If we got this far, something failed, redisplay form
-            return RedirectToAction("Register");
+            return RedirectToAction("Login");
         }
 
         //

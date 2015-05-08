@@ -13,13 +13,13 @@ namespace ProWorldz.Web.Models
         public string SucessMessage { get; set; }
         public string ErrorMessage { get; set; }
     }
-    public class PostCommentModel:BaseModel
+    public class PostCommentModel : BaseModel
     {
         public UserPostBM UserPost { get; set; }
 
         public List<UserPostBM> UserPostList { get; set; }
     }
-    public class ProfileModel:BaseModel
+    public class ProfileModel : BaseModel
     {
         public UserGeneralInformationBM UserGeneralInformationModel { get; set; }
         public UserPersonalInformationBM UserPersonalInformationModel { get; set; }
@@ -45,38 +45,38 @@ namespace ProWorldz.Web.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage="Name enter please")]
+        [Required(ErrorMessage = "Name enter please")]
         public string Name { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }
 
-        
+        [Required]
         public string Password { get; set; }
 
         public int UserTypeId { get; set; }
 
-       
+        [Required]
         public DateTime DOB { get; set; }
-
-
+         [Required]
+        public string DateOfBirth { get; set; }
         public bool Active { get; set; }
 
         public bool Deleted { get; set; }
 
         public string Gender { get; set; }
-       
+
         public System.DateTime CreationDate { get; set; }
-       
+
         public Nullable<System.DateTime> ModificationDate { get; set; }
-         
+
         public int CreatedBy { get; set; }
-                
+
         public Nullable<int> ModifiedBy { get; set; }
 
-
+        [Required]
         public int CommunityId { get; set; }
-
+        [Required]
         public int SubCommunityId { get; set; }
 
         public int CommunityName { get; set; }
