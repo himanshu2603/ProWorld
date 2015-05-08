@@ -13,7 +13,7 @@ namespace ProWorldz.DL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201504131100103_1"; }
+            get { return "201504220911297_1"; }
         }
         
         string IMigrationMetadata.Source

@@ -55,11 +55,11 @@ namespace ProWorldz.Web.Models
         public string ConfirmPassword { get; set; }
     }
 
-    public class LoginModel
+    public class LoginModel:BaseModel
     {
         [Required]
-        [Display(Name = "User name")]
-        public string UserName { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

@@ -15,47 +15,231 @@ using ProWorldz.BL.BusinessModel;
 
 namespace ProWorldz.Web.Controllers
 {
-   
+
     public class AccountController : Controller
     {
         //
         // GET: /Account/Login
+        UserGeneralInformationBL UserGeneralInformationBL = new BL.BusinessLayer.UserGeneralInformationBL();
+        UserPersonalInformationBL UserPersonalInformationBL = new BL.BusinessLayer.UserPersonalInformationBL();
+        UserProfessionalQualificationBL UserProfessionalQualificationBL = new BL.BusinessLayer.UserProfessionalQualificationBL();
+        UserQualificationBL UserQualificationBL = new BL.BusinessLayer.UserQualificationBL();
+        public ActionResult Test()
+        {
 
-       
+            UserModel Model = new UserModel();
+
+            //    List<string> mylist = new List<string>({Id= "element1",Name= "element2" });
+            CommunityBL CommunityBL = new BL.BusinessLayer.CommunityBL();
+
+            Model.CommunityList = CommunityBL.GetCommunity().Where(o => o.ParentId == 0).ToList();
+
+            Model.SubCommunityList = CommunityBL.GetCommunity().Where(o => o.ParentId != 0).ToList();
+            return View(Model);
+        }
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            LoginModel Model = new LoginModel();
+            Model.SucessMessage = (TempData["Success"] != null ? TempData["Success"].ToString() : string.Empty).ToString();
+            Model.ErrorMessage = (TempData["Error"] != null ? TempData["Error"].ToString() : string.Empty).ToString();
+
+            return View(Model);
         }
-
-        //
-        // POST: /Account/Login
-
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginModel model, string returnUrl)
+        public ActionResult LoginUser(LoginModel Model)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            UserBL UserBL = new BL.BusinessLayer.UserBL();
+            UserBM User = UserBL.GetUsers().Where(p => p.Email == Model.Email && p.Password == Model.Password).FirstOrDefault();
+            if (User != null)
             {
-                return RedirectToLocal(returnUrl);
+                Session["User"] = User;
+                FormsAuthentication.SetAuthCookie(User.Name, false);
+                return RedirectToAction("Profile");
+            }
+            else
+            {
+                TempData["Error"] = "Invalid username and password";
+                return RedirectToAction("Login");
             }
 
-            // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
-            return View(model);
+            return RedirectToAction("Login");
         }
 
-        //
-        // POST: /Account/LogOff
+        public ActionResult Profile()
+        {
+            CommunityBL CommunityBL = new BL.BusinessLayer.CommunityBL();
+            CountryBL CountryBL = new BL.BusinessLayer.CountryBL();
+            StateBL StateBL = new BL.BusinessLayer.StateBL();
+            CityBL CityBL = new BL.BusinessLayer.CityBL();
+            ProfileModel Model = new ProfileModel();
 
+
+            Model.SucessMessage = (TempData["Success"] != null ? TempData["Success"].ToString() : string.Empty).ToString();
+            Model.ErrorMessage = (TempData["Error"] != null ? TempData["Error"].ToString() : string.Empty).ToString();
+
+            if (Session["User"] != null)
+            {
+
+                UserBM CurrentUser = (UserBM)Session["User"];
+                List<UserGeneralInformationBM> GenerealInfoList = UserGeneralInformationBL.GetGeneralInformation().Where(p => p.UserId == CurrentUser.Id).ToList();
+                if (GenerealInfoList.Count > 0)
+                    Model.UserGeneralInformationModel = GenerealInfoList.FirstOrDefault();
+                if (Model.UserGeneralInformationModel == null)
+                    Model.UserGeneralInformationModel = new UserGeneralInformationBM();
+
+
+
+               
+
+
+
+
+                
+
+                Model.CommunityList = CommunityBL.GetCommunity().Where(o => o.ParentId == 0).ToList();
+
+                Model.SubCommunityList = CommunityBL.GetCommunity().Where(o => o.ParentId != 0).ToList();
+                Model.CountryList = CountryBL.GetCountry();
+                Model.StateList = StateBL.GetState();
+                Model.CityList = CityBL.GetCities();
+
+                return View(Model);
+            }
+            return RedirectToAction("Login");
+        }
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        public ActionResult ForgotPassword(LoginModel Model)
+        {
+            TempData["Success"] = "Password Has been send on your emal.";
+            return RedirectToAction("Login");
+        }
+
+        public ActionResult UpdateGeneralInformation(ProfileModel Model, HttpPostedFileBase file)
+        {
+            UserBM CurrentUser = (UserBM)Session["User"];
+            if (CurrentUser != null)
+            {
+                if (file != null)
+                {
+                    UserGeneralInformationBL UserGeneralInformationBL = new BL.BusinessLayer.UserGeneralInformationBL();
+
+                    string ImageName = System.IO.Path.GetFileName(file.FileName);
+                    string physicalPath = Server.MapPath("~/Images/" + ImageName);
+                    file.SaveAs(physicalPath);
+                    UserGeneralInformationBM UserGeneralInformation = new UserGeneralInformationBM();
+                    UserGeneralInformation.CommunityId = Model.UserGeneralInformationModel.CommunityId;
+                    UserGeneralInformation.SubCommunityId = Model.UserGeneralInformationModel.SubCommunityId;
+                    UserGeneralInformation.Image = "/Images/" + ImageName;
+                    UserGeneralInformation.UserId = CurrentUser.Id;
+                    UserGeneralInformation.CreatedBy = CurrentUser.Id;
+                    UserGeneralInformation.CreationDate = DateTime.Now;
+                    UserGeneralInformationBL.Create(UserGeneralInformation);
+                    TempData["Success"] = "Record saved Successfully.";
+                }
+            }
+            else
+            {
+                TempData["Error"] = "Please Login.";
+            }
+
+            return RedirectToAction("Profile");
+        }
+
+
+
+        public ActionResult UpdatePersonalInformation(ProfileModel Model)
+        {
+            UserBM CurrentUser = (UserBM)Session["User"];
+            if (CurrentUser != null)
+            {
+
+                UserPersonalInformationBM UserPersonalInformationBM = new UserPersonalInformationBM();
+                UserPersonalInformationBM.CountryId = Model.UserPersonalInformationModel.CountryId;
+                UserPersonalInformationBM.StateId = Model.UserPersonalInformationModel.StateId;
+                UserPersonalInformationBM.CityId = Model.UserPersonalInformationModel.CityId;
+                UserPersonalInformationBM.Phone = Model.UserPersonalInformationModel.Phone;
+                UserPersonalInformationBM.Address1 = Model.UserPersonalInformationModel.Address1;
+                UserPersonalInformationBM.Address2 = Model.UserPersonalInformationModel.Address2;
+                UserPersonalInformationBM.UserId = CurrentUser.Id;
+                UserPersonalInformationBM.CreatedBy = CurrentUser.Id;
+                UserPersonalInformationBM.CreationDate = DateTime.Now;
+                UserPersonalInformationBL.Create(UserPersonalInformationBM);
+                    TempData["Success"] = "Record saved Successfully.";
+                
+            }
+            else
+            {
+                TempData["Error"] = "Please Login.";
+            }
+
+            return RedirectToAction("Profile");
+        }
+
+        public ActionResult UserProfessionalQualification(ProfileModel Model)
+        {
+            UserBM CurrentUser = (UserBM)Session["User"];
+            if (CurrentUser != null)
+            {
+
+                UserProfessionalQualificationBM UserProfessionalQualificationBM = new UserProfessionalQualificationBM();
+                UserProfessionalQualificationBM.CompanyName = Model.UserProfessionalQualificationModel.CompanyName;
+                UserProfessionalQualificationBM.StartDate = Model.UserProfessionalQualificationModel.StartDate;
+                UserProfessionalQualificationBM.EndDate = Model.UserProfessionalQualificationModel.EndDate;
+                UserProfessionalQualificationBM.Designation = DateTime.Now;//Note remove DS
+                UserProfessionalQualificationBM.Salary = Model.UserProfessionalQualificationModel.Salary;
+              
+                UserProfessionalQualificationBM.UserId = CurrentUser.Id;
+                UserProfessionalQualificationBM.CreatedBy = CurrentUser.Id;
+                UserProfessionalQualificationBM.CreationDate = DateTime.Now;
+                UserProfessionalQualificationBL.Create(UserProfessionalQualificationBM);
+                TempData["Success"] = "Record saved Successfully.";
+
+            }
+            else
+            {
+                TempData["Error"] = "Please Login.";
+            }
+
+            return RedirectToAction("Profile");
+        }
+
+
+
+
+        public ActionResult UserQualification(ProfileModel Model)
+        {
+            UserBM CurrentUser = (UserBM)Session["User"];
+            if (CurrentUser != null)
+            {
+
+                UserQualificatinBM UserQualificatinBM = new UserQualificatinBM();
+                UserQualificatinBM.SchoolName = Model.UserQualificatinModel.SchoolName;
+                UserQualificatinBM.Degree = Model.UserQualificatinModel.Degree;
+                UserQualificatinBM.Percentage = Model.UserQualificatinModel.Percentage;
+                UserQualificatinBM.Description = Model.UserQualificatinModel.Description;
+              
+
+                UserQualificatinBM.UserId = CurrentUser.Id;
+                UserQualificatinBM.CreatedBy = CurrentUser.Id;
+                UserQualificatinBM.CreationDate = DateTime.Now;
+                UserQualificationBL.Create(UserQualificatinBM);
+                TempData["Success"] = "Record saved Successfully.";
+
+            }
+            else
+            {
+                TempData["Error"] = "Please Login.";
+            }
+
+            return RedirectToAction("Profile");
+        }
+
+       
         public ActionResult LogOff()
         {
-            WebSecurity.Logout();
+            FormsAuthentication.SignOut();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //
@@ -66,9 +250,11 @@ namespace ProWorldz.Web.Controllers
         {
 
             UserModel Model = new UserModel();
-            CommunityBL CommunityBL=new BL.BusinessLayer.CommunityBL();
 
-            Model.CommunityList = CommunityBL.GetCommunity().Where(o=>o.ParentId==0).ToList();
+            //    List<string> mylist = new List<string>({Id= "element1",Name= "element2" });
+            CommunityBL CommunityBL = new BL.BusinessLayer.CommunityBL();
+
+            Model.CommunityList = CommunityBL.GetCommunity().Where(o => o.ParentId == 0).ToList();
 
             Model.SubCommunityList = CommunityBL.GetCommunity().Where(o => o.ParentId != 0).ToList();
             return View(Model);
@@ -78,7 +264,7 @@ namespace ProWorldz.Web.Controllers
         // POST: /Account/Register
 
         [HttpPost]
-        public ActionResult Test(UserModel model)
+        public ActionResult Test(UserModel model, FormCollection collection)
         {
 
             UserBL userBL = new UserBL();
@@ -86,10 +272,12 @@ namespace ProWorldz.Web.Controllers
             userBM.Name = model.Name;
             userBM.Email = model.Email;
             userBM.Password = model.Password;
-            userBM.UserTypeId = 1;
-            userBM.DOB = model.DOB;
+            userBM.UserTypeId = Convert.ToInt32(collection["UserType"].ToString());
+            userBM.DOB = DateTime.Now;
             userBM.CreationDate = DateTime.Now.Date;
             userBM.ModificationDate = DateTime.Now.Date;
+
+            string gender = collection["gender"].ToString();
             userBM.Gender = "M";
             userBM.Active = true;
             userBM.CommunityId = model.CommunityId;
