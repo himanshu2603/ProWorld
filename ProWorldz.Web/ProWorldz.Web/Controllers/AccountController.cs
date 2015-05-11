@@ -151,6 +151,15 @@ namespace ProWorldz.Web.Controllers
                     UserGeneralInformation.CreatedBy = CurrentUser.Id;
                     UserGeneralInformation.CreationDate = DateTime.Now;
                     UserGeneralInformationBL.Create(UserGeneralInformation);
+
+                 
+                    if (!string.IsNullOrEmpty(Model.UserGeneralInformationModel.Password))
+                    {
+                        CurrentUser.Password = Model.UserGeneralInformationModel.Password;
+                        UserBL userBL = new UserBL();
+                        userBL.UpdateUser(CurrentUser);
+                        Session["User"] = CurrentUser;
+                    }
                     TempData["Success"] = "Record saved Successfully.";
                 }
             }
