@@ -17,7 +17,7 @@ namespace ProWorldz.BL.BusinessModel
         [Required]
         public string SchoolName { get; set; }
         [Required]
-        public string Degree { get; set; }
+        public int Degree { get; set; }
         [Required]
         public string Percentage { get; set; }
 

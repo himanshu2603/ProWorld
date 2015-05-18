@@ -40,6 +40,22 @@ namespace ProWorldz.DL.Models
 
         public int SubCommunityName { get; set; }
 
+        [ForeignKey("City")]
+        public int CityId { get; set; }
+
+
+
+        [ForeignKey("State")]
+        public int StateId { get; set; }
+
+         [ForeignKey("Country")]
+          public int CountryName { get; set; }
+
+         public virtual City City { get; set; }
+         public virtual Country Country { get; set; }
+
+         public virtual State State { get; set; }
+
         
     }
 }

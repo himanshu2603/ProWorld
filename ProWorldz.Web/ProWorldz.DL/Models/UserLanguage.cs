@@ -7,16 +7,12 @@ using System.Threading.Tasks;
 
 namespace ProWorldz.DL.Models
 {
-    public class Community : BaseClass
+   public class UserLanguage
     {
-        [Key]
+       [Key]
         public int Id { get; set; }
-
-        [Required]//check unique user name
-        public string Name { get; set; }
-
-        public int CountryId { get; set; }
-
-        public int ParentId { get; set; }
+       public int UserId { get; set; }
+       public string Language { get; set; }
+       public string Level { get; set; }
     }
 }
