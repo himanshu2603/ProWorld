@@ -31,6 +31,10 @@ namespace ProWorldz.DL.UOW
         private GenericRepository<UserProfessionalQualification> userProfessionalQualificationRepository;
         private GenericRepository<UserQualification> userQualificationRepository;
 
+
+        private GenericRepository<UserVideo> userVideoRepository;
+
+
         public GenericRepository<UserPost> UserPostRepository
         {
             get
@@ -86,6 +90,15 @@ namespace ProWorldz.DL.UOW
             }
         }
 
+        public GenericRepository<UserVideo> UserVideoRepository
+        {
+            get
+            {
+                if (userVideoRepository == null)
+                    userVideoRepository = new GenericRepository<UserVideo>(Context);
+                return userVideoRepository;
+            }
+        }
 
 
         public GenericRepository<City> CityRepository

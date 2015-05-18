@@ -51,6 +51,7 @@
     <Compile Include="BusinessLayer\UserPostCommentBL.cs" />
     <Compile Include="BusinessLayer\UserProfessionalQualificationBL.cs" />
     <Compile Include="BusinessLayer\UserQualificationBL.cs" />
+    <Compile Include="BusinessLayer\UserVideoBL.cs" />
     <Compile Include="BusinessModel\BaseBM.cs" />
     <Compile Include="BusinessModel\CityBM.cs" />
     <Compile Include="BusinessModel\CommunityBM.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="BusinessModel\UserPostCommentBM.cs" />
     <Compile Include="BusinessModel\UserProfessionalQualificationBM.cs" />
     <Compile Include="BusinessModel\UserQualificatinBM.cs" />
+    <Compile Include="BusinessModel\UserVideoBM.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

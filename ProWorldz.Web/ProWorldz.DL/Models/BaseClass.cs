@@ -20,5 +20,7 @@ namespace ProWorldz.DL.Models
         public int CreatedBy { get; set; }
 
         public Nullable<int> ModifiedBy { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

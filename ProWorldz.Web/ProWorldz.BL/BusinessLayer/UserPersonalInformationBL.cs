@@ -48,8 +48,8 @@ namespace ProWorldz.BL.BusinessLayer
                 UserId = model.UserId,
                 Address1 = model.Address1,
                 Address2 = model.Address2,
-                CityId = model.CityId,
-                StateId = model.StateId,
+               // CityId = model.CityId,
+             //   StateId = model.StateId,
                 PhoneNumber = model.Phone,
 
                 CreatedBy = model.CreatedBy,
@@ -70,8 +70,8 @@ namespace ProWorldz.BL.BusinessLayer
              UserId=model.UserId,
              Address1=model.Address1,
              Address2=model.Address2,
-             CityId=model.CityId,
-             StateId=model.StateId,
+           //  CityId=model.CityId,
+            // StateId=model.StateId,
              Phone=model.PhoneNumber,
 
               CreatedBy=model.CreatedBy,

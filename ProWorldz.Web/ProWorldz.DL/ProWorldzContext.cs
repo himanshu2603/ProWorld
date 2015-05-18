@@ -32,6 +32,11 @@ namespace ProWorldz.DL
         public DbSet<UserQualification> UserQualification { get; set; }
         public DbSet<UserPersonalInfomation> UserPersonalInfomation { get; set; }
         public DbSet<UserGeneralInfomation> UserGeneralInfomation { get; set; }
+        public DbSet<UserVideo> UserVideo { get; set; }
+
+
+
+
 
         public DbSet<UserProfessionalQualification> UserProfessionalQualification { get; set; }
 

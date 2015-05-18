@@ -24,6 +24,9 @@ namespace ProWorldz.Web.Controllers
         UserPersonalInformationBL UserPersonalInformationBL = new BL.BusinessLayer.UserPersonalInformationBL();
         UserProfessionalQualificationBL UserProfessionalQualificationBL = new BL.BusinessLayer.UserProfessionalQualificationBL();
         UserQualificationBL UserQualificationBL = new BL.BusinessLayer.UserQualificationBL();
+
+        UserVideoBL UserVideoBL = new BL.BusinessLayer.UserVideoBL();
+
         public ActionResult Test()
         {
 
@@ -86,10 +89,7 @@ namespace ProWorldz.Web.Controllers
                     Model.UserGeneralInformationModel = GenerealInfoList.FirstOrDefault();
                 if (Model.UserGeneralInformationModel == null)
                     Model.UserGeneralInformationModel = new UserGeneralInformationBM();
-
-
-
-
+                
                 List<UserPersonalInformationBM> PersoalInfoList = UserPersonalInformationBL.GetPersonalInformation().Where(p => p.UserId == CurrentUser.Id).ToList();
                 if (PersoalInfoList.Count > 0)
                     Model.UserPersonalInformationModel = PersoalInfoList.FirstOrDefault();
@@ -110,6 +110,13 @@ namespace ProWorldz.Web.Controllers
                     Model.UserQualificatinModel = UserQualificatinModelList.FirstOrDefault();
                 if (Model.UserQualificatinModel == null)
                     Model.UserQualificatinModel = new UserQualificatinBM();
+
+                List<UserVideoBM> UserVideoList = UserVideoBL.GetUserVideo().Where(p => p.UserId == CurrentUser.Id).ToList();
+                if (UserVideoList.Count > 0)
+                    Model.UserVideoModel = UserVideoList.FirstOrDefault();
+                if (Model.UserVideoModel == null)
+                    Model.UserVideoModel = new UserVideoBM();
+
 
 
 
@@ -171,26 +178,87 @@ namespace ProWorldz.Web.Controllers
             return RedirectToAction("Profile");
         }
 
+        public ActionResult UserVideo(ProfileModel Model)
+        { 
+             UserBM CurrentUser = (UserBM)Session["User"];
+             UserVideoBL userVideoBL = new UserVideoBL();
+             if (CurrentUser != null)
+             {
+                 if (Model.UserVideoModel.Id == 0)
+                 {
+                     UserVideoBM userVideoBM = new UserVideoBM();
+                    
+                     userVideoBM.UserId = CurrentUser.Id;
+                     userVideoBM.VideoResumeUrl = Model.UserVideoModel.VideoResumeUrl;
+                     userVideoBM.ArtWorkYouTube1 = Model.UserVideoModel.ArtWorkYouTube1;
+                     userVideoBM.ArtWorkYouTube2 = Model.UserVideoModel.ArtWorkYouTube2;
+                     userVideoBM.ArtWorkYouTube3 = Model.UserVideoModel.ArtWorkYouTube3;
+                     userVideoBM.ArtWorkYouTube4 = Model.UserVideoModel.ArtWorkYouTube4;
+                     userVideoBM.ArtWorkYouTube5 = Model.UserVideoModel.ArtWorkYouTube5;
 
+                     userVideoBM.ArtWorkUrl1 = Model.UserVideoModel.ArtWorkUrl1;
+                     userVideoBM.ArtWorkUrl2 = Model.UserVideoModel.ArtWorkUrl2;
+                     userVideoBM.ArtWorkUrl3 = Model.UserVideoModel.ArtWorkUrl3;
+
+                     userVideoBM.CreationDate = DateTime.Now;
+                     userVideoBM.CreatedBy = CurrentUser.Id;
+                     userVideoBL.Create(userVideoBM);
+                     TempData["Success"] = "Record saved Successfully.";
+
+                 }
+                 else
+                 {
+                   UserVideoBM userVideoBM=   userVideoBL.GetById(Model.UserVideoModel.Id);
+                   userVideoBM.UserId = CurrentUser.Id;
+                   userVideoBM.VideoResumeUrl = Model.UserVideoModel.VideoResumeUrl;
+                   userVideoBM.ArtWorkYouTube1 = Model.UserVideoModel.ArtWorkYouTube1;
+                   userVideoBM.ArtWorkYouTube2 = Model.UserVideoModel.ArtWorkYouTube2;
+                   userVideoBM.ArtWorkYouTube3 = Model.UserVideoModel.ArtWorkYouTube3;
+                   userVideoBM.ArtWorkYouTube4 = Model.UserVideoModel.ArtWorkYouTube4;
+                   userVideoBM.ArtWorkYouTube5 = Model.UserVideoModel.ArtWorkYouTube5;
+
+                   userVideoBM.ArtWorkUrl1 = Model.UserVideoModel.ArtWorkUrl1;
+                   userVideoBM.ArtWorkUrl2 = Model.UserVideoModel.ArtWorkUrl2;
+                   userVideoBM.ArtWorkUrl3 = Model.UserVideoModel.ArtWorkUrl3;
+                   userVideoBM.ModificationDate = DateTime.Now;
+                   userVideoBM.ModifiedBy = CurrentUser.Id;
+                   
+                   userVideoBL.Update(userVideoBM);
+                   TempData["Success"] = "Record Updated Successfully.";
+                 }
+             }
+             else
+             {
+                 TempData["Error"] = "Please Login.";
+             }
+             return RedirectToAction("Profile");
+        }
 
         public ActionResult UpdatePersonalInformation(ProfileModel Model)
         {
             UserBM CurrentUser = (UserBM)Session["User"];
             if (CurrentUser != null)
             {
+                //if (Model.UserVideoModel.Id == 0)
+                //{
 
-                UserPersonalInformationBM UserPersonalInformationBM = new UserPersonalInformationBM();
-                UserPersonalInformationBM.CountryId = Model.UserPersonalInformationModel.CountryId;
-                UserPersonalInformationBM.StateId = Model.UserPersonalInformationModel.StateId;
-                UserPersonalInformationBM.CityId = Model.UserPersonalInformationModel.CityId;
-                UserPersonalInformationBM.Phone = Model.UserPersonalInformationModel.Phone;
-                UserPersonalInformationBM.Address1 = Model.UserPersonalInformationModel.Address1;
-                UserPersonalInformationBM.Address2 = Model.UserPersonalInformationModel.Address2;
-                UserPersonalInformationBM.UserId = CurrentUser.Id;
-                UserPersonalInformationBM.CreatedBy = CurrentUser.Id;
-                UserPersonalInformationBM.CreationDate = DateTime.Now;
-                UserPersonalInformationBL.Create(UserPersonalInformationBM);
+                    UserPersonalInformationBM UserPersonalInformationBM = new UserPersonalInformationBM();
+                    UserPersonalInformationBM.CountryId = Model.UserPersonalInformationModel.CountryId;
+                    UserPersonalInformationBM.StateId = Model.UserPersonalInformationModel.StateId;
+                    UserPersonalInformationBM.CityId = Model.UserPersonalInformationModel.CityId;
+                    UserPersonalInformationBM.Phone = Model.UserPersonalInformationModel.Phone;
+                    UserPersonalInformationBM.Address1 = Model.UserPersonalInformationModel.Address1;
+                    UserPersonalInformationBM.Address2 = Model.UserPersonalInformationModel.Address2;
+                    UserPersonalInformationBM.UserId = CurrentUser.Id;
+                    UserPersonalInformationBM.CreatedBy = CurrentUser.Id;
+                    UserPersonalInformationBM.CreationDate = DateTime.Now;
+                    UserPersonalInformationBL.Create(UserPersonalInformationBM);
                     TempData["Success"] = "Record saved Successfully.";
+                //}
+                //else
+                //{
+                //    UserPersonalInformationBL.GetPersonalInformationById();
+                //}
                 
             }
             else
@@ -237,20 +305,24 @@ namespace ProWorldz.Web.Controllers
             UserBM CurrentUser = (UserBM)Session["User"];
             if (CurrentUser != null)
             {
+                //if (Model.UserVideoModel.Id == 0)
+                //{
+                    UserQualificatinBM UserQualificatinBM = new UserQualificatinBM();
+                    UserQualificatinBM.SchoolName = Model.UserQualificatinModel.SchoolName;
+                    UserQualificatinBM.Degree = Model.UserQualificatinModel.Degree;
+                    UserQualificatinBM.Percentage = Model.UserQualificatinModel.Percentage;
+                    UserQualificatinBM.Description = Model.UserQualificatinModel.Description;
 
-                UserQualificatinBM UserQualificatinBM = new UserQualificatinBM();
-                UserQualificatinBM.SchoolName = Model.UserQualificatinModel.SchoolName;
-                UserQualificatinBM.Degree = Model.UserQualificatinModel.Degree;
-                UserQualificatinBM.Percentage = Model.UserQualificatinModel.Percentage;
-                UserQualificatinBM.Description = Model.UserQualificatinModel.Description;
-              
 
-                UserQualificatinBM.UserId = CurrentUser.Id;
-                UserQualificatinBM.CreatedBy = CurrentUser.Id;
-                UserQualificatinBM.CreationDate = DateTime.Now;
-                UserQualificationBL.Create(UserQualificatinBM);
-                TempData["Success"] = "Record saved Successfully.";
-
+                    UserQualificatinBM.UserId = CurrentUser.Id;
+                    UserQualificatinBM.CreatedBy = CurrentUser.Id;
+                    UserQualificatinBM.CreationDate = DateTime.Now;
+                    UserQualificationBL.Create(UserQualificatinBM);
+                    TempData["Success"] = "Record saved Successfully.";
+                //}
+                //else
+                //{
+                //}
             }
             else
             {

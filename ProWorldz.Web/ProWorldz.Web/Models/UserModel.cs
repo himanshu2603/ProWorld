@@ -26,6 +26,8 @@ namespace ProWorldz.Web.Models
         public UserProfessionalQualificationBM UserProfessionalQualificationModel { get; set; }
         public UserQualificatinBM UserQualificatinModel { get; set; }
 
+        public UserVideoBM UserVideoModel { get; set; }
+
         public List<CommunityBM> CommunityList { get; set; }
         public List<CommunityBM> SubCommunityList { get; set; }
 
@@ -38,6 +40,7 @@ namespace ProWorldz.Web.Models
             UserPersonalInformationModel = new UserPersonalInformationBM();
             UserProfessionalQualificationModel = new UserProfessionalQualificationBM();
             UserQualificatinModel = new UserQualificatinBM();
+            UserVideoModel = new UserVideoBM();
 
         }
     }
