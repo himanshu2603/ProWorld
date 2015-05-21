@@ -21,19 +21,20 @@ namespace ProWorldz.DL.Models
 
          public DateTime EndDate { get; set; }
 
-         public DateTime Designation { get; set; }
+         public int Designation { get; set; }
 
          public Decimal Salary { get; set; }
 
          public bool IsCurrentEmployee { get; set; }
 
-          [ForeignKey("IndustryType")]
-         public int CurrentIndustry { get; set; }
+            [ForeignKey("IndustryType")]
+            public int CurrentIndustry { get; set; }
 
           public string UserRole { get; set; }
 
           public string Skill { get; set; }
 
+         
          
          public virtual User User { get; set; }
 

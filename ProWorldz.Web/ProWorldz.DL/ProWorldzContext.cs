@@ -35,5 +35,10 @@ namespace ProWorldz.DL
 
         public DbSet<UserProfessionalQualification> UserProfessionalQualification { get; set; }
 
+
+        public DbSet<IndustryType> IndustryType { get; set; }
+
+        public DbSet<Degree> Degree { get; set; }
+
     }
 }

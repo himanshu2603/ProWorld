@@ -53,6 +53,14 @@
     <Compile Include="Migrations\201505181457555_Infij.Designer.cs">
       <DependentUpon>201505181457555_Infij.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505191206498_desiChanga.cs" />
+    <Compile Include="Migrations\201505191206498_desiChanga.Designer.cs">
+      <DependentUpon>201505191206498_desiChanga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505191215019_gtttt.cs" />
+    <Compile Include="Migrations\201505191215019_gtttt.Designer.cs">
+      <DependentUpon>201505191215019_gtttt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseClass.cs" />
     <Compile Include="Models\City.cs" />
@@ -83,6 +91,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201505181457555_Infij.resx">
       <DependentUpon>201505181457555_Infij.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505191206498_desiChanga.resx">
+      <DependentUpon>201505191206498_desiChanga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505191215019_gtttt.resx">
+      <DependentUpon>201505191215019_gtttt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

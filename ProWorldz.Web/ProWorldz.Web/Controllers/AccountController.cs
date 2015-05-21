@@ -67,13 +67,14 @@ namespace ProWorldz.Web.Controllers
 
         public ActionResult Profile()
         {
+            CommonBL commonBL = new CommonBL();
             CommunityBL CommunityBL = new BL.BusinessLayer.CommunityBL();
             CountryBL CountryBL = new BL.BusinessLayer.CountryBL();
             StateBL StateBL = new BL.BusinessLayer.StateBL();
             CityBL CityBL = new BL.BusinessLayer.CityBL();
             ProfileModel Model = new ProfileModel();
 
-
+         List<IndustryBM> IndustryList=  commonBL.GetIndustry();
             Model.SucessMessage = (TempData["Success"] != null ? TempData["Success"].ToString() : string.Empty).ToString();
             Model.ErrorMessage = (TempData["Error"] != null ? TempData["Error"].ToString() : string.Empty).ToString();
 
@@ -87,7 +88,7 @@ namespace ProWorldz.Web.Controllers
                 if (Model.UserGeneralInformationModel == null)
                     Model.UserGeneralInformationModel = new UserGeneralInformationBM();
 
-
+               
 
 
                 List<UserPersonalInformationBM> PersoalInfoList = UserPersonalInformationBL.GetPersonalInformation().Where(p => p.UserId == CurrentUser.Id).ToList();
@@ -101,7 +102,12 @@ namespace ProWorldz.Web.Controllers
                 if (ProfessionalQualificationInfoList.Count > 0)
                     Model.UserProfessionalQualificationModel = ProfessionalQualificationInfoList.FirstOrDefault();
                 if (Model.UserProfessionalQualificationModel == null)
+                {
                     Model.UserProfessionalQualificationModel = new UserProfessionalQualificationBM();
+                    Model.UserProfessionalQualificationModel.StartDate = DateTime.Now.Date;
+                    Model.UserProfessionalQualificationModel.EndDate = DateTime.Now.Date;
+
+                }
 
 
 
@@ -201,7 +207,7 @@ namespace ProWorldz.Web.Controllers
             return RedirectToAction("Profile");
         }
 
-        public ActionResult UserProfessionalQualification(ProfileModel Model)
+        public ActionResult UserProfessionalQualification(ProfileModel Model,FormCollection collection)
         {
             UserBM CurrentUser = (UserBM)Session["User"];
             if (CurrentUser != null)
@@ -211,9 +217,9 @@ namespace ProWorldz.Web.Controllers
                 UserProfessionalQualificationBM.CompanyName = Model.UserProfessionalQualificationModel.CompanyName;
                 UserProfessionalQualificationBM.StartDate = Model.UserProfessionalQualificationModel.StartDate;
                 UserProfessionalQualificationBM.EndDate = Model.UserProfessionalQualificationModel.EndDate;
-                UserProfessionalQualificationBM.Designation = DateTime.Now;//Note remove DS
+                UserProfessionalQualificationBM.Designation =Convert.ToInt32( collection["DesignationType"].ToString());//Note remove DS
                 UserProfessionalQualificationBM.Salary = Model.UserProfessionalQualificationModel.Salary;
-              
+                UserProfessionalQualificationBM.IndustryTypeId = Model.UserProfessionalQualificationModel.IndustryTypeId;
                 UserProfessionalQualificationBM.UserId = CurrentUser.Id;
                 UserProfessionalQualificationBM.CreatedBy = CurrentUser.Id;
                 UserProfessionalQualificationBM.CreationDate = DateTime.Now;

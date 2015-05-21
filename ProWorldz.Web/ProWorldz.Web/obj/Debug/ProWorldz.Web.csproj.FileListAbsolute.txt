@@ -266,3 +266,5 @@ D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\bin\zh-Hant\System.Spatial.reso
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\obj\Debug\ProWorldz.Web.csprojResolveAssemblyReference.cache
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\obj\Debug\ProWorldz.Web.dll
 D:\Proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\obj\Debug\ProWorldz.Web.pdb
+D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\obj\Debug\ProWorldz.Web.Migrations.desiChang.resources
+D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.Web\obj\Debug\ProWorldz.Web.csproj.GenerateResource.Cache

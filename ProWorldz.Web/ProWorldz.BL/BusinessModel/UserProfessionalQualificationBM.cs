@@ -20,9 +20,24 @@ namespace ProWorldz.BL.BusinessModel
         [Required]
         public DateTime EndDate { get; set; }
 
-        public DateTime Designation { get; set; }
+        public int Designation { get; set; }
         [Required]
         public Decimal Salary { get; set; }
+        [Required]
+        public int IndustryTypeId { get; set; }
+
+        public bool IsCurrentEmployee { get; set; }
+
+        public string UserRole { get; set; }
+
+        public string Skill { get; set; }
+
+        public UserProfessionalQualificationBM()
+        {
+            StartDate = DateTime.Now.Date;
+            EndDate = DateTime.Now.Date;
+
+        }
 
     }
 }

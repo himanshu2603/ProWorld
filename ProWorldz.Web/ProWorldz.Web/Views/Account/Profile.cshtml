@@ -4,7 +4,7 @@
     
 }
 
-
+<link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
 <body class="login">
     
 
@@ -60,6 +60,10 @@
                 </li>
 
                 <li><a href="#Qualification" data-toggle="tab"><i class="fa fa-fw fa-envelope"></i>Qualification Info</a>
+                </li>
+
+                <li>
+                    <a href="#UserVideo" data-toggle="tab"><i class="fa fa-fw fa-envelope"></i>Video & Portfolio</a>
                 </li>
             </ul>
             <!-- // END Tabs -->
@@ -174,8 +178,7 @@
                             </div>
                             <br />
                             <br />
-
-                             <br />
+                                                         <br />
                             <br />
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Phone</label>
@@ -186,8 +189,6 @@
                             </div>
                             <br />
                             <br />
-
-
                             <br />
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Address 1</label>
@@ -237,7 +238,7 @@
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-3 control-label">Start date</label>
                                 <div class="col-sm-9">
-                                    @Html.TextBoxFor(model => model.UserProfessionalQualificationModel.StartDate, new { @id = "datepicker", @class = "form-control datepicker", @placeholder = "Start Date" })
+                                    @Html.TextBoxFor(model => model.UserProfessionalQualificationModel.StartDate, new { @id = "datepicker", @class = "form-control form_date", @placeholder = "Start Date" })
                                       @Html.ValidationMessageFor(model => model.UserProfessionalQualificationModel.StartDate)
                                 </div>
                             </div>
@@ -247,7 +248,7 @@
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-3 control-label">End Date</label>
                                 <div class="col-sm-9">
-                                    @Html.TextBoxFor(model => model.UserProfessionalQualificationModel.EndDate, new { @class = "form-control datepicker", @placeholder = "End Date" })
+                                    @Html.TextBoxFor(model => model.UserProfessionalQualificationModel.EndDate, new { @class = "form-control form_date", @placeholder = "End Date" })
                                       @Html.ValidationMessageFor(model => model.UserProfessionalQualificationModel.EndDate)
                                 </div>
                             </div>
@@ -264,10 +265,21 @@
                             <br />
                             <br />
                             <br />
+                            <br />
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-3 control-label">Industry Type</label>
+                                <div class="col-sm-9">
+                                    @Html.DropDownListFor(x => x.UserProfessionalQualificationModel.IndustryTypeId, new SelectList(@Model.IndustryList, "Id", "Name", Model.UserProfessionalQualificationModel.IndustryTypeId), "- - Select - -", new { @class = "dropdown form-control" })
+                                    @Html.ValidationMessageFor(model => model.UserProfessionalQualificationModel.IndustryTypeId)
+                                </div>
+                            </div>
+                          
+                            <br />
+                            <br />
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-3 control-label">Designation</label>
                                 <div class="col-sm-9">
-                                    <select class="dropdown form-control" data-val="true" data-val-number="The field CommunityId must be a number." data-val-required="The CommunityId field is required." id="UserTypeId" name="UserType">
+                                    <select class="dropdown form-control" data-val="true" data-val-number="The field CommunityId must be a number." data-val-required="The CommunityId field is required." id="UserTypeId" name="DesignationType">
                                         <option value="">- - Select - -</option>
                                         <option value="1">QA</option>
                                         <option value="2">Developer</option>
@@ -275,7 +287,17 @@
                                         <option value="2">COO</option>
                                         <option value="2">PM</option>
                                     </select>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <br />
 
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-3 control-label">Role</label>
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.UserProfessionalQualificationModel.UserRole, new { @class = "form-control", @placeholder = "UserRole" })
+                                    @Html.ValidationMessageFor(model => model.UserProfessionalQualificationModel.UserRole)
                                 </div>
                             </div>
 
@@ -283,7 +305,17 @@
                             <br />
                             <br />
 
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-3 control-label">Skill</label>
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.UserProfessionalQualificationModel.Skill, new { @class = "form-control", @placeholder = "Skill" })
+                                   
+                                </div>
+                            </div>
 
+                            <br />
+                            <br />
+                            <br />
                             <div class="form-group margin-none">
                                 <div class="col-sm-offset-3 col-sm-9">
                                     <button type="submit" class="btn btn-primary">Update</button>
@@ -346,7 +378,55 @@
                     }
                 </div>
 
+                <div id="UserVideo" class="tab-pane">
+                    @using (Html.BeginForm("UserVideo", "Account", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(m => m.UserVideoModel.Id)
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-3 control-label">Video Resume Url</label>
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.UserVideoModel.VideoResumeUrl, new { @class = "form-control", @placeholder = "Video Resume Url" })
+                                    @Html.ValidationMessageFor(model => model.UserVideoModel.VideoResumeUrl)
+                                </div>
+                            </div>
 
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-3 control-label">Youtube Url 1</label>
+                                <div class="col-sm-6">
+                                    @Html.TextBoxFor(model => model.UserVideoModel.ArtWorkYouTube1, new { @class = "form-control", @placeholder = "Youtube Url 1" })
+                                    @Html.ValidationMessageFor(model => model.UserVideoModel.ArtWorkYouTube1)
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="button" value="Add More" onclick="return AddMoreYouTube();" />
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-3 control-label">Art Work Url 1</label>
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor(model => model.UserVideoModel.ArtWorkUrl1, new { @class = "form-control", @placeholder = "Art Work Url 1" })
+                                    @Html.ValidationMessageFor(model => model.UserVideoModel.ArtWorkUrl1)
+                                </div>
+                            </div>
+
+
+                            <br />
+                            <br />
+                            <div class="form-group margin-none">
+                                <div class="col-sm-offset-3 col-sm-9">
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                </div>
+                            </div>
+
+                        </form>
+                        <br />
+                        <br />
+                        <br />
+                    }
+                </div>
 
              
             </div>
@@ -354,20 +434,36 @@
         </div>
 
     </div>
+
+
 </body>
 <script src="~/Scripts/jquery-1.9.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         //alert("hi")
-        $('#himanshu').datepicker();
+     //   $('#himanshu').datepicker();
     })
     function hideMessage(data) {
         $(data).hide("slow")
 
     }
+    $('.form_date').datetimepicker({
+        format: "dd MM yyyy",
+        startDate: "2013-02-14 10:00",
+        language: 'fr',
+        weekStart: 1,
+        todayBtn: 1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0,
+        showMeridian: 0
+    });
 </script>
 
 
