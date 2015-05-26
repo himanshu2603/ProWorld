@@ -49,12 +49,12 @@ namespace ProWorldz.DL.Models
         public int StateId { get; set; }
 
          [ForeignKey("Country")]
-          public int Country { get; set; }
+          public int CountryName { get; set; }
 
-         public virtual City Cities { get; set; }
-         // public virtual Country Countries { get; set; }
+         public virtual City City { get; set; }
+         public virtual Country Country { get; set; }
 
-         public virtual State States { get; set; }
+         public virtual State State { get; set; }
 
         
     }

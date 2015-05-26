@@ -1,4 +1,5 @@
-﻿using ProWorldz.BL.BusinessModel;
+﻿using ProWorldz.BL.BusinessLayer;
+using ProWorldz.BL.BusinessModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,9 @@ namespace ProWorldz.Web.Models
         public UserPersonalInformationBM UserPersonalInformationModel { get; set; }
         public UserProfessionalQualificationBM UserProfessionalQualificationModel { get; set; }
         public UserQualificatinBM UserQualificatinModel { get; set; }
+        CommonBL commonBL = new CommonBL();
+
+        public UserVideoBM UserVideoModel { get; set; }
 
         public UserVideoBM UserVideoModel { get; set; }
 
@@ -34,8 +38,14 @@ namespace ProWorldz.Web.Models
         public List<CityBM> CityList { get; set; }
         public List<StateBM> StateList { get; set; }
         public List<CountryBM> CountryList { get; set; }
+
+        public List<IndustryBM> IndustryList { get; set; }
+
+      //  public List<Designa> IndustryList { get; set; }
+
         public ProfileModel()
         {
+            IndustryList = commonBL.GetIndustry();
             UserGeneralInformationModel = new UserGeneralInformationBM();
             UserPersonalInformationModel = new UserPersonalInformationBM();
             UserProfessionalQualificationModel = new UserProfessionalQualificationBM();

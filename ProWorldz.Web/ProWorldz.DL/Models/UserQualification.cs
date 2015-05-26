@@ -19,7 +19,7 @@ namespace ProWorldz.DL.Models
         public string SchoolName { get; set; }
 
         [ForeignKey("Degree")]
-        public int Degree { get; set; }
+        public int DegreeName { get; set; }
 
         public string Percentage { get; set; }
 
@@ -31,7 +31,7 @@ namespace ProWorldz.DL.Models
         public DateTime EndDate { get; set; }
 
 
-        
+        public virtual Degree Degree { get; set; }
 
         public virtual User User { get; set; }
 

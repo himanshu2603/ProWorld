@@ -30,6 +30,33 @@ namespace ProWorldz.DL.UOW
         private GenericRepository<UserPersonalInfomation> userPersonalInfomationRepository;
         private GenericRepository<UserProfessionalQualification> userProfessionalQualificationRepository;
         private GenericRepository<UserQualification> userQualificationRepository;
+        private GenericRepository<UserVideo> userVideoRepository;
+
+        private GenericRepository<IndustryType> industryTypeRepository;
+
+        private GenericRepository<Degree> degreeRepository;
+
+        public GenericRepository<Degree> DegreeRepository
+        {
+            get
+            {
+                if (degreeRepository == null)
+                    degreeRepository = new GenericRepository<Degree>(Context);
+                return degreeRepository;
+            }
+        }
+
+
+        public GenericRepository<IndustryType> IndustryTypeRepository
+        {
+            get
+            {
+                if (industryTypeRepository == null)
+                    industryTypeRepository = new GenericRepository<IndustryType>(Context);
+                return industryTypeRepository;
+            }
+        }
+
 
 
         private GenericRepository<UserVideo> userVideoRepository;
@@ -44,6 +71,17 @@ namespace ProWorldz.DL.UOW
                 return userPostRepository;
             }
         }
+
+        public GenericRepository<UserVideo> UserVideoRepository
+        {
+            get
+            {
+                if (userVideoRepository == null)
+                    userVideoRepository = new GenericRepository<UserVideo>(Context);
+                return userVideoRepository;
+            }
+        }
+
         public GenericRepository<UserPostComment> UserPostCommentRepository
         {
             get

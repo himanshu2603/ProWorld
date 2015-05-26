@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLayer\CityBL.cs" />
+    <Compile Include="BusinessLayer\CommonBL.cs" />
     <Compile Include="BusinessLayer\CommunityBL.cs" />
     <Compile Include="BusinessLayer\CountryBL.cs" />
     <Compile Include="BusinessLayer\StateBL.cs" />
@@ -56,6 +57,8 @@
     <Compile Include="BusinessModel\CityBM.cs" />
     <Compile Include="BusinessModel\CommunityBM.cs" />
     <Compile Include="BusinessModel\CountryBM.cs" />
+    <Compile Include="BusinessModel\DegreeBM.cs" />
+    <Compile Include="BusinessModel\IndustryBM.cs" />
     <Compile Include="BusinessModel\StateBM.cs" />
     <Compile Include="BusinessModel\UserBM.cs" />
     <Compile Include="BusinessModel\UserGeneralInformationBM.cs" />

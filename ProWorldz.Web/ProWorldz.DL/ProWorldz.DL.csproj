@@ -49,15 +49,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Migrations\201505181457555_Infij.cs" />
+    <Compile Include="Migrations\201505181457555_Infij.Designer.cs">
+      <DependentUpon>201505181457555_Infij.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505191206498_desiChanga.cs" />
+    <Compile Include="Migrations\201505191206498_desiChanga.Designer.cs">
+      <DependentUpon>201505191206498_desiChanga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505191215019_gtttt.cs" />
+    <Compile Include="Migrations\201505191215019_gtttt.Designer.cs">
+      <DependentUpon>201505191215019_gtttt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseClass.cs" />
     <Compile Include="Models\City.cs" />
-    <Compile Include="Models\IndustryType.cs" />
     <Compile Include="Models\Community.cs" />
     <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Degree.cs" />
+    <Compile Include="Models\IndustryType.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\Degree.cs" />
     <Compile Include="Models\UserGeneralInfomation.cs" />
     <Compile Include="Models\UserLanguage.cs" />
     <Compile Include="Models\UserPersonalInfomation.cs" />
@@ -75,6 +87,17 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505181457555_Infij.resx">
+      <DependentUpon>201505181457555_Infij.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505191206498_desiChanga.resx">
+      <DependentUpon>201505191206498_desiChanga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505191215019_gtttt.resx">
+      <DependentUpon>201505191215019_gtttt.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
