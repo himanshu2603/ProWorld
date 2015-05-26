@@ -24,6 +24,8 @@ namespace ProWorldz.Web.Controllers
         UserPersonalInformationBL UserPersonalInformationBL = new BL.BusinessLayer.UserPersonalInformationBL();
         UserProfessionalQualificationBL UserProfessionalQualificationBL = new BL.BusinessLayer.UserProfessionalQualificationBL();
         UserQualificationBL UserQualificationBL = new BL.BusinessLayer.UserQualificationBL();
+
+        UserVideoBL UserVideoBL = new UserVideoBL();
         public ActionResult Test()
         {
 
@@ -207,6 +209,37 @@ namespace ProWorldz.Web.Controllers
             return RedirectToAction("Profile");
         }
 
+        public ActionResult UserVideo(ProfileModel Model)
+        {
+            UserBM CurrentUser = (UserBM)Session["User"];
+            if (CurrentUser != null)
+            {
+
+                UserVideoBM UserVideoBM = new UserVideoBM();
+                UserVideoBM.VideoResumeUrl = Model.UserVideoModel.VideoResumeUrl;
+                UserVideoBM.ArtWorkYouTube1 = Model.UserVideoModel.ArtWorkYouTube1;
+                UserVideoBM.ArtWorkYouTube2 = Model.UserVideoModel.ArtWorkYouTube2;
+                UserVideoBM.ArtWorkYouTube3 = Model.UserVideoModel.ArtWorkYouTube3;
+                UserVideoBM.ArtWorkYouTube4 = Model.UserVideoModel.ArtWorkYouTube4;
+                UserVideoBM.ArtWorkYouTube5 = Model.UserVideoModel.ArtWorkYouTube5;
+                UserVideoBM.ArtWorkUrl1 = Model.UserVideoModel.ArtWorkUrl1;
+                UserVideoBM.ArtWorkUrl2 = Model.UserVideoModel.ArtWorkUrl2;
+                UserVideoBM.ArtWorkUrl3 = Model.UserVideoModel.ArtWorkUrl3;
+
+                UserVideoBM.UserId = CurrentUser.Id;
+                UserVideoBM.CreatedBy = CurrentUser.Id;
+                UserVideoBM.CreationDate = DateTime.Now;
+                UserVideoBL.Create(UserVideoBM);
+                TempData["Success"] = "Record saved Successfully.";
+
+            }
+            else
+            {
+                TempData["Error"] = "Please Login.";
+            }
+
+            return RedirectToAction("Profile");
+        }
         public ActionResult UserProfessionalQualification(ProfileModel Model,FormCollection collection)
         {
             UserBM CurrentUser = (UserBM)Session["User"];

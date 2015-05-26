@@ -30,7 +30,7 @@ namespace ProWorldz.Web.Models
 
         public UserVideoBM UserVideoModel { get; set; }
 
-        public UserVideoBM UserVideoModel { get; set; }
+     //   public UserVideoBM UserVideoModel { get; set; }
 
         public List<CommunityBM> CommunityList { get; set; }
         public List<CommunityBM> SubCommunityList { get; set; }

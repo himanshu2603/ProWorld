@@ -59,7 +59,7 @@ namespace ProWorldz.DL.UOW
 
 
 
-        private GenericRepository<UserVideo> userVideoRepository;
+      //  private GenericRepository<UserVideo> userVideoRepository;
 
 
         public GenericRepository<UserPost> UserPostRepository
@@ -128,15 +128,7 @@ namespace ProWorldz.DL.UOW
             }
         }
 
-        public GenericRepository<UserVideo> UserVideoRepository
-        {
-            get
-            {
-                if (userVideoRepository == null)
-                    userVideoRepository = new GenericRepository<UserVideo>(Context);
-                return userVideoRepository;
-            }
-        }
+      
 
 
         public GenericRepository<City> CityRepository

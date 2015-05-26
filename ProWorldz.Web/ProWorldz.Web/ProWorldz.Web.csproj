@@ -192,11 +192,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201505191206214_desiChang.cs" />
-    <Compile Include="Migrations\201505191206214_desiChang.Designer.cs">
-      <DependentUpon>201505191206214_desiChang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -499,11 +494,6 @@
       <Project>{f21db6cc-69be-414d-bd63-3915428d738f}</Project>
       <Name>ProWorldz.BL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505191206214_desiChang.resx">
-      <DependentUpon>201505191206214_desiChang.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
