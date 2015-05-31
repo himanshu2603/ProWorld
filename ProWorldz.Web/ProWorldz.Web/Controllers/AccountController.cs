@@ -247,17 +247,41 @@ namespace ProWorldz.Web.Controllers
             {
 
                 UserProfessionalQualificationBM UserProfessionalQualificationBM = new UserProfessionalQualificationBM();
-                UserProfessionalQualificationBM.CompanyName = Model.UserProfessionalQualificationModel.CompanyName;
-                UserProfessionalQualificationBM.StartDate = Model.UserProfessionalQualificationModel.StartDate;
-                UserProfessionalQualificationBM.EndDate = Model.UserProfessionalQualificationModel.EndDate;
-                UserProfessionalQualificationBM.Designation =Convert.ToInt32( collection["DesignationType"].ToString());//Note remove DS
-                UserProfessionalQualificationBM.Salary = Model.UserProfessionalQualificationModel.Salary;
-                UserProfessionalQualificationBM.IndustryTypeId = Model.UserProfessionalQualificationModel.IndustryTypeId;
-                UserProfessionalQualificationBM.UserId = CurrentUser.Id;
-                UserProfessionalQualificationBM.CreatedBy = CurrentUser.Id;
-                UserProfessionalQualificationBM.CreationDate = DateTime.Now;
-                UserProfessionalQualificationBL.Create(UserProfessionalQualificationBM);
-                TempData["Success"] = "Record saved Successfully.";
+                if (Model.UserProfessionalQualificationModel.Id == 0)
+                {
+                    UserProfessionalQualificationBM.CompanyName = Model.UserProfessionalQualificationModel.CompanyName;
+                    UserProfessionalQualificationBM.StartDate = Model.UserProfessionalQualificationModel.StartDate;
+                    UserProfessionalQualificationBM.EndDate = Model.UserProfessionalQualificationModel.EndDate;
+                    UserProfessionalQualificationBM.Designation = Convert.ToInt32(collection["DesignationType"].ToString());//Note remove DS
+                    UserProfessionalQualificationBM.Salary = Model.UserProfessionalQualificationModel.Salary;
+                    UserProfessionalQualificationBM.UserRole = Model.UserProfessionalQualificationModel.UserRole;
+                    UserProfessionalQualificationBM.Skill = Model.UserProfessionalQualificationModel.Skill;
+                    UserProfessionalQualificationBM.IndustryTypeId = Model.UserProfessionalQualificationModel.IndustryTypeId;
+                    UserProfessionalQualificationBM.UserId = CurrentUser.Id;
+                    UserProfessionalQualificationBM.CreatedBy = CurrentUser.Id;
+                    UserProfessionalQualificationBM.CreationDate = DateTime.Now;
+
+                    UserProfessionalQualificationBL.Create(UserProfessionalQualificationBM);
+                    TempData["Success"] = "Record saved Successfully.";
+                }
+                else
+                {
+                    UserProfessionalQualificationBM = UserProfessionalQualificationBL.GetProfessionalQualificationById(Model.UserProfessionalQualificationModel.Id);
+                    UserProfessionalQualificationBM.CompanyName = Model.UserProfessionalQualificationModel.CompanyName;
+                    UserProfessionalQualificationBM.StartDate = Model.UserProfessionalQualificationModel.StartDate;
+                    UserProfessionalQualificationBM.EndDate = Model.UserProfessionalQualificationModel.EndDate;
+                    UserProfessionalQualificationBM.Designation = Convert.ToInt32(collection["DesignationType"].ToString());//Note remove DS
+                    UserProfessionalQualificationBM.Salary = Model.UserProfessionalQualificationModel.Salary;
+                    UserProfessionalQualificationBM.UserRole = Model.UserProfessionalQualificationModel.UserRole;
+                    UserProfessionalQualificationBM.Skill = Model.UserProfessionalQualificationModel.Skill;
+                    UserProfessionalQualificationBM.IndustryTypeId = Model.UserProfessionalQualificationModel.IndustryTypeId;
+                    UserProfessionalQualificationBM.UserId = CurrentUser.Id;
+                    UserProfessionalQualificationBM.CreatedBy = CurrentUser.Id;
+                    UserProfessionalQualificationBM.CreationDate = DateTime.Now;
+
+                    UserProfessionalQualificationBL.Update(UserProfessionalQualificationBM);
+                    TempData["Success"] = "Record saved Successfully.";
+                }
 
             }
             else
@@ -268,7 +292,23 @@ namespace ProWorldz.Web.Controllers
             return RedirectToAction("Profile");
         }
 
+        public JsonResult GetProfessionalData()
+        {
+            UserBM CurrentUser = (UserBM)Session["User"];
+            List<UserProfessionalQualificationBM> UserProfessionalQualificationBMList = new List<UserProfessionalQualificationBM>();
+            if (CurrentUser != null)
+            {
+                 UserProfessionalQualificationBMList = UserProfessionalQualificationBL.GetProfessionalQualification().Where(a => a.UserId == CurrentUser.Id).ToList();
 
+            }
+            else
+            {
+
+                UserProfessionalQualificationBMList = null;
+
+            }
+            return Json(UserProfessionalQualificationBMList, JsonRequestBehavior.AllowGet);
+        }
 
 
         public ActionResult UserQualification(ProfileModel Model)
