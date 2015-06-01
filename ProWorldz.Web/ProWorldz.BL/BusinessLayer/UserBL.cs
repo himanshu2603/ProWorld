@@ -64,8 +64,10 @@ namespace ProWorldz.BL.BusinessLayer
                 CreationDate=model.CreationDate,
                 CreatedBy=model.CreatedBy,
                 ModifiedBy = model.ModifiedBy,
-                ModificationDate = model.ModificationDate
-
+                ModificationDate = model.ModificationDate,
+                CityId=model.CityId,
+                StateId=model.StateId,
+                CountryName=model.CountryId
 
 
             };
@@ -88,7 +90,10 @@ namespace ProWorldz.BL.BusinessLayer
                 SubCommunityName = model.SubCommunityName,
                 Active = model.Active,
                 ModifiedBy = model.ModifiedBy,
-                ModificationDate = model.ModificationDate
+                ModificationDate = model.ModificationDate,
+                CityId = model.CityId,
+                StateId = model.StateId,
+              CountryId= model.CountryName
 
 
             };

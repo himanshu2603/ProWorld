@@ -36,14 +36,17 @@ namespace ProWorldz.DL.Repository
         }
 
         public void Add(TEntity entity)
-        {
+       {
+            //Context.Entry(entity).State = EntityState.Added;
             DbSet.Add(entity);
         }
 
         public void Update(TEntity entity)
         {
-           // DbSet.Attach(entity);
+          //  DbSet.Attach(entity);
+            
             Context.Entry(entity).State = EntityState.Modified;
+            Context.SaveChanges();
         }
 
         public void Delete(int id)

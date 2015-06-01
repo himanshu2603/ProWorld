@@ -45,6 +45,7 @@ namespace ProWorldz.Web.Models
 
         public ProfileModel()
         {
+            UserProfessionalQualificationModel = new UserProfessionalQualificationBM();
             IndustryList = commonBL.GetIndustry();
             UserGeneralInformationModel = new UserGeneralInformationBM();
             UserPersonalInformationModel = new UserPersonalInformationBM();

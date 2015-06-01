@@ -90,6 +90,14 @@ namespace ProWorldz.Web.Controllers
                 if (Model.UserGeneralInformationModel == null)
                     Model.UserGeneralInformationModel = new UserGeneralInformationBM();
 
+                List<UserVideoBM> UserVideoList = UserVideoBL.GetUserVideo().Where(p => p.UserId == CurrentUser.Id).ToList();
+                if (UserVideoList.Count > 0)
+                    Model.UserVideoModel = UserVideoList.FirstOrDefault();
+                if (Model.UserVideoModel == null)
+                    Model.UserVideoModel = new UserVideoBM();
+
+
+
                
 
 
@@ -99,17 +107,7 @@ namespace ProWorldz.Web.Controllers
                 if (Model.UserPersonalInformationModel == null)
                     Model.UserPersonalInformationModel = new UserPersonalInformationBM();
 
-
-                List<UserProfessionalQualificationBM> ProfessionalQualificationInfoList = UserProfessionalQualificationBL.GetProfessionalQualification().Where(p => p.UserId == CurrentUser.Id).ToList();
-                if (ProfessionalQualificationInfoList.Count > 0)
-                    Model.UserProfessionalQualificationModel = ProfessionalQualificationInfoList.FirstOrDefault();
-                if (Model.UserProfessionalQualificationModel == null)
-                {
-                    Model.UserProfessionalQualificationModel = new UserProfessionalQualificationBM();
-                    Model.UserProfessionalQualificationModel.StartDate = DateTime.Now.Date;
-                    Model.UserProfessionalQualificationModel.EndDate = DateTime.Now.Date;
-
-                }
+               
 
 
 
@@ -144,31 +142,55 @@ namespace ProWorldz.Web.Controllers
             UserBM CurrentUser = (UserBM)Session["User"];
             if (CurrentUser != null)
             {
-                if (file != null)
+                if (Model.UserGeneralInformationModel.Id == 0)
                 {
-                    UserGeneralInformationBL UserGeneralInformationBL = new BL.BusinessLayer.UserGeneralInformationBL();
-
-                    string ImageName = System.IO.Path.GetFileName(file.FileName);
-                    string physicalPath = Server.MapPath("~/Images/" + ImageName);
-                    file.SaveAs(physicalPath);
-                    UserGeneralInformationBM UserGeneralInformation = new UserGeneralInformationBM();
-                    UserGeneralInformation.CommunityId = Model.UserGeneralInformationModel.CommunityId;
-                    UserGeneralInformation.SubCommunityId = Model.UserGeneralInformationModel.SubCommunityId;
-                    UserGeneralInformation.Image = "/Images/" + ImageName;
-                    UserGeneralInformation.UserId = CurrentUser.Id;
-                    UserGeneralInformation.CreatedBy = CurrentUser.Id;
-                    UserGeneralInformation.CreationDate = DateTime.Now;
-                    UserGeneralInformationBL.Create(UserGeneralInformation);
-
-                 
-                    if (!string.IsNullOrEmpty(Model.UserGeneralInformationModel.Password))
+                    if (file != null)
                     {
-                        CurrentUser.Password = Model.UserGeneralInformationModel.Password;
-                        UserBL userBL = new UserBL();
-                        userBL.UpdateUser(CurrentUser);
-                        Session["User"] = CurrentUser;
+                        UserGeneralInformationBL UserGeneralInformationBL = new BL.BusinessLayer.UserGeneralInformationBL();
+
+                        string ImageName = System.IO.Path.GetFileName(file.FileName);
+                        string physicalPath = Server.MapPath("~/Images/" + ImageName);
+                        file.SaveAs(physicalPath);
+                        UserGeneralInformationBM UserGeneralInformation = new UserGeneralInformationBM();
+                        UserGeneralInformation.CommunityId = Model.UserGeneralInformationModel.CommunityId;
+                        UserGeneralInformation.SubCommunityId = Model.UserGeneralInformationModel.SubCommunityId;
+                        UserGeneralInformation.Image = "/Images/" + ImageName;
+                        UserGeneralInformation.UserId = CurrentUser.Id;
+                        UserGeneralInformation.CreatedBy = CurrentUser.Id;
+                        UserGeneralInformation.CreationDate = DateTime.Now;
+                        UserGeneralInformationBL.Create(UserGeneralInformation);
+
+
+                        if (!string.IsNullOrEmpty(Model.UserGeneralInformationModel.Password))
+                        {
+                            CurrentUser.Password = Model.UserGeneralInformationModel.Password;
+                            UserBL userBL = new UserBL();
+                            CurrentUser.CreationDate = DateTime.Now;
+                            userBL.UpdateUser(CurrentUser);
+                            Session["User"] = CurrentUser;
+                        }
+                        TempData["Success"] = "Record saved Successfully.";
                     }
-                    TempData["Success"] = "Record saved Successfully.";
+                }
+                else
+                {
+                    //update code
+                  UserGeneralInformationBM UserGeneralInformationBM=  UserGeneralInformationBL.GetGeneralInformationByUserId(CurrentUser.Id);
+                  UserGeneralInformationBM.CommunityId = Model.UserGeneralInformationModel.CommunityId;
+                  UserGeneralInformationBM.SubCommunityId = Model.UserGeneralInformationModel.SubCommunityId;
+                 // UserGeneralInformationBM.Image = "/Images/" + ImageName;
+                  if (file != null)
+                  {
+                     
+                      string ImageName = System.IO.Path.GetFileName(file.FileName);
+                      string physicalPath = Server.MapPath("~/Images/" + ImageName);
+                      file.SaveAs(physicalPath);
+                      UserGeneralInformationBM.Image = "/Images/" + ImageName;
+                  }
+                  UserGeneralInformationBM.UserId = CurrentUser.Id;
+                  UserGeneralInformationBM.ModifiedBy = CurrentUser.Id;
+                  UserGeneralInformationBM.ModificationDate = DateTime.Now;
+                  UserGeneralInformationBL.Update(UserGeneralInformationBM);
                 }
             }
             else
@@ -214,23 +236,47 @@ namespace ProWorldz.Web.Controllers
             UserBM CurrentUser = (UserBM)Session["User"];
             if (CurrentUser != null)
             {
+                if (Model.UserVideoModel.Id == 0)
+                {
 
-                UserVideoBM UserVideoBM = new UserVideoBM();
-                UserVideoBM.VideoResumeUrl = Model.UserVideoModel.VideoResumeUrl;
-                UserVideoBM.ArtWorkYouTube1 = Model.UserVideoModel.ArtWorkYouTube1;
-                UserVideoBM.ArtWorkYouTube2 = Model.UserVideoModel.ArtWorkYouTube2;
-                UserVideoBM.ArtWorkYouTube3 = Model.UserVideoModel.ArtWorkYouTube3;
-                UserVideoBM.ArtWorkYouTube4 = Model.UserVideoModel.ArtWorkYouTube4;
-                UserVideoBM.ArtWorkYouTube5 = Model.UserVideoModel.ArtWorkYouTube5;
-                UserVideoBM.ArtWorkUrl1 = Model.UserVideoModel.ArtWorkUrl1;
-                UserVideoBM.ArtWorkUrl2 = Model.UserVideoModel.ArtWorkUrl2;
-                UserVideoBM.ArtWorkUrl3 = Model.UserVideoModel.ArtWorkUrl3;
+                    UserVideoBM UserVideoBM = new UserVideoBM();
+                    UserVideoBM.VideoResumeUrl = Model.UserVideoModel.VideoResumeUrl;
+                    UserVideoBM.ArtWorkYouTube1 = Model.UserVideoModel.ArtWorkYouTube1;
+                    UserVideoBM.ArtWorkYouTube2 = Model.UserVideoModel.ArtWorkYouTube2;
+                    UserVideoBM.ArtWorkYouTube3 = Model.UserVideoModel.ArtWorkYouTube3;
+                    UserVideoBM.ArtWorkYouTube4 = Model.UserVideoModel.ArtWorkYouTube4;
+                    UserVideoBM.ArtWorkYouTube5 = Model.UserVideoModel.ArtWorkYouTube5;
+                    UserVideoBM.ArtWorkUrl1 = Model.UserVideoModel.ArtWorkUrl1;
+                    UserVideoBM.ArtWorkUrl2 = Model.UserVideoModel.ArtWorkUrl2;
+                    UserVideoBM.ArtWorkUrl3 = Model.UserVideoModel.ArtWorkUrl3;
 
-                UserVideoBM.UserId = CurrentUser.Id;
-                UserVideoBM.CreatedBy = CurrentUser.Id;
-                UserVideoBM.CreationDate = DateTime.Now;
-                UserVideoBL.Create(UserVideoBM);
-                TempData["Success"] = "Record saved Successfully.";
+                    UserVideoBM.UserId = CurrentUser.Id;
+                    UserVideoBM.CreatedBy = CurrentUser.Id;
+                    UserVideoBM.CreationDate = DateTime.Now;
+                    UserVideoBL.Create(UserVideoBM);
+                    TempData["Success"] = "Record saved Successfully.";
+                }
+                else
+                {
+                    UserVideoBM UserVideoBM = UserVideoBL.GetUserVideo().Where(p => p.UserId == CurrentUser.Id).FirstOrDefault();
+
+                    UserVideoBM.VideoResumeUrl = Model.UserVideoModel.VideoResumeUrl;
+                    UserVideoBM.ArtWorkYouTube1 = Model.UserVideoModel.ArtWorkYouTube1;
+                    UserVideoBM.ArtWorkYouTube2 = Model.UserVideoModel.ArtWorkYouTube2;
+                    UserVideoBM.ArtWorkYouTube3 = Model.UserVideoModel.ArtWorkYouTube3;
+                    UserVideoBM.ArtWorkYouTube4 = Model.UserVideoModel.ArtWorkYouTube4;
+                    UserVideoBM.ArtWorkYouTube5 = Model.UserVideoModel.ArtWorkYouTube5;
+                    UserVideoBM.ArtWorkUrl1 = Model.UserVideoModel.ArtWorkUrl1;
+                    UserVideoBM.ArtWorkUrl2 = Model.UserVideoModel.ArtWorkUrl2;
+                    UserVideoBM.ArtWorkUrl3 = Model.UserVideoModel.ArtWorkUrl3;
+
+                    UserVideoBM.UserId = CurrentUser.Id;
+                    UserVideoBM.CreatedBy = CurrentUser.Id;
+                    UserVideoBM.CreationDate = DateTime.Now;
+                    UserVideoBM.ModifiedBy = CurrentUser.Id;
+                    UserVideoBM.ModificationDate = DateTime.Now;
+                    UserVideoBL.Update(UserVideoBM);
+                }
 
             }
             else
