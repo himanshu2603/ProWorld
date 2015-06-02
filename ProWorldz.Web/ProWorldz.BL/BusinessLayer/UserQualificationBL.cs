@@ -55,10 +55,11 @@ namespace ProWorldz.BL.BusinessLayer
                SchoolName=model.SchoolName,
                DegreeName=model.Degree,
                Percentage=model.Percentage,
-               Description=model.Percentage,
+               Description=model.Description,
                 CreatedBy = model.CreatedBy,
                 CreationDate = model.CreationDate,
-
+                StartDate=model.StartDate,
+                EndDate=model.EndDate,
                 ModifiedBy = model.ModifiedBy,
                 ModificationDate = model.ModificationDate
             };
@@ -73,10 +74,11 @@ namespace ProWorldz.BL.BusinessLayer
                 SchoolName = model.SchoolName,
                 Degree = model.DegreeName,
                 Percentage = model.Percentage,
-                Description = model.Percentage,
+                Description = model.Description,
                 CreatedBy = model.CreatedBy,
                 CreationDate = model.CreationDate,
-
+                StartDate = model.StartDate,
+                EndDate = model.EndDate,
                 ModifiedBy = model.ModifiedBy,
                 ModificationDate = model.ModificationDate
 

@@ -10,6 +10,6 @@ namespace ProWorldz.BL.BusinessModel
     {
         public int Id { get; set; }
 
-        public int Name { get; set; }
+        public string Name { get; set; }
     }
 }

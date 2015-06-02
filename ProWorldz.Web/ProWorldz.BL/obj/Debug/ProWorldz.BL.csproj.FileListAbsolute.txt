@@ -7,22 +7,6 @@ E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.BL\bin\Debug\EntityFramewo
 E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.csprojResolveAssemblyReference.cache
 E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.dll
 E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.pdb
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.BL.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.BL.pdb
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\Microsoft.CSharp.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.DL.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\System.ComponentModel.DataAnnotations.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\System.Data.DataSetExtensions.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\System.Data.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\System.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\System.Xml.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\System.Xml.Linq.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\EntityFramework.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.DL.pdb
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\EntityFramework.xml
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.csprojResolveAssemblyReference.cache
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.pdb
 D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.BL.dll
 D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.BL.pdb
 D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\Microsoft.CSharp.dll
@@ -39,3 +23,19 @@ D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\EntityFramework.xml
 D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.csprojResolveAssemblyReference.cache
 D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.dll
 D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.pdb
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.BL.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.BL.pdb
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\Microsoft.CSharp.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.DL.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\System.ComponentModel.DataAnnotations.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\System.Data.DataSetExtensions.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\System.Data.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\System.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\System.Xml.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\System.Xml.Linq.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\EntityFramework.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\ProWorldz.DL.pdb
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\bin\Debug\EntityFramework.xml
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.csprojResolveAssemblyReference.cache
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.BL\obj\Debug\ProWorldz.BL.pdb

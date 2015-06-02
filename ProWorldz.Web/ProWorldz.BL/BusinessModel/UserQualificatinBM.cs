@@ -19,6 +19,11 @@ namespace ProWorldz.BL.BusinessModel
         [Required]
         public int Degree { get; set; }
         [Required]
+        public DateTime StartDate { get; set; }
+
+
+        public DateTime EndDate { get; set; }
+        [Required]
         public string Percentage { get; set; }
 
         public string Description { get; set; }

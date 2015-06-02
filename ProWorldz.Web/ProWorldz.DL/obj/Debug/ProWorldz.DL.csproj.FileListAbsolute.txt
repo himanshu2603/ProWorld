@@ -10,25 +10,6 @@ E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.
 E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.csproj.GenerateResource.Cache
 E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.dll
 E:\Manoj Projects\MVC Project\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.pdb
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\ProWorldz.DL.dll.config
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\ProWorldz.DL.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\ProWorldz.DL.pdb
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\EntityFramework.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\EntityFramework.SqlServer.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\Microsoft.CSharp.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\System.ComponentModel.DataAnnotations.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\System.Data.DataSetExtensions.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\System.Data.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\System.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\System.Xml.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\System.Xml.Linq.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\EntityFramework.xml
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\EntityFramework.SqlServer.xml
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.Migrations.TESTNEW.resources
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.csproj.GenerateResource.Cache
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.dll
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.pdb
-F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.csprojResolveAssemblyReference.cache
 D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\ProWorldz.DL.dll.config
 D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\ProWorldz.DL.dll
 D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\ProWorldz.DL.pdb
@@ -48,3 +29,22 @@ D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.pdb
 D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.Migrations.check.resources
 D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.csproj.GenerateResource.Cache
 D:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.csprojResolveAssemblyReference.cache
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\ProWorldz.DL.dll.config
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\ProWorldz.DL.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\ProWorldz.DL.pdb
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\EntityFramework.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\EntityFramework.SqlServer.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\Microsoft.CSharp.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\System.ComponentModel.DataAnnotations.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\System.Data.DataSetExtensions.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\System.Data.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\System.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\System.Xml.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\System.Xml.Linq.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\EntityFramework.xml
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\bin\Debug\EntityFramework.SqlServer.xml
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.Migrations.test.resources
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.Migrations.degree.resources
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.csproj.GenerateResource.Cache
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.dll
+F:\proworld\ProWorld\ProWorldz.Web\ProWorldz.DL\obj\Debug\ProWorldz.DL.pdb

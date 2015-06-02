@@ -111,11 +111,7 @@ namespace ProWorldz.Web.Controllers
 
 
 
-                List<UserQualificatinBM> UserQualificatinModelList = UserQualificationBL.GetUserQualificatin().Where(p => p.UserId == CurrentUser.Id).ToList();
-                if (UserQualificatinModelList.Count > 0)
-                    Model.UserQualificatinModel = UserQualificatinModelList.FirstOrDefault();
-                if (Model.UserQualificatinModel == null)
-                    Model.UserQualificatinModel = new UserQualificatinBM();
+             
 
 
 
@@ -357,6 +353,25 @@ namespace ProWorldz.Web.Controllers
         }
 
 
+        public JsonResult GetQualificationData()
+        {
+            UserBM CurrentUser = (UserBM)Session["User"];
+            List<UserQualificatinBM> UserQualificatinList = new List<UserQualificatinBM>();
+            if (CurrentUser != null)
+            {
+                UserQualificatinList = UserQualificationBL.GetUserQualificatin().Where(a => a.UserId == CurrentUser.Id).ToList();
+
+            }
+            else
+            {
+
+                UserQualificatinList = null;
+
+            }
+            return Json(UserQualificatinList, JsonRequestBehavior.AllowGet);
+        }
+
+
         public ActionResult UserQualification(ProfileModel Model)
         {
             UserBM CurrentUser = (UserBM)Session["User"];
@@ -368,7 +383,8 @@ namespace ProWorldz.Web.Controllers
                 UserQualificatinBM.Degree = Model.UserQualificatinModel.Degree;
                 UserQualificatinBM.Percentage = Model.UserQualificatinModel.Percentage;
                 UserQualificatinBM.Description = Model.UserQualificatinModel.Description;
-              
+                UserQualificatinBM.StartDate = Model.UserQualificatinModel.StartDate;
+                UserQualificatinBM.EndDate = Model.UserQualificatinModel.EndDate;
 
                 UserQualificatinBM.UserId = CurrentUser.Id;
                 UserQualificatinBM.CreatedBy = CurrentUser.Id;

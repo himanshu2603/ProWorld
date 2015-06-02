@@ -41,12 +41,15 @@ namespace ProWorldz.Web.Models
 
         public List<IndustryBM> IndustryList { get; set; }
 
+        public List<DegreeBM> DegreeList { get; set; }
+
       //  public List<Designa> IndustryList { get; set; }
 
         public ProfileModel()
         {
             UserProfessionalQualificationModel = new UserProfessionalQualificationBM();
             IndustryList = commonBL.GetIndustry();
+            DegreeList = commonBL.GetDegree();
             UserGeneralInformationModel = new UserGeneralInformationBM();
             UserPersonalInformationModel = new UserPersonalInformationBM();
             UserProfessionalQualificationModel = new UserProfessionalQualificationBM();
