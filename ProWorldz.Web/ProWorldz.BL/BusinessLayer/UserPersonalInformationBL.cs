@@ -33,7 +33,10 @@ namespace ProWorldz.BL.BusinessLayer
             return ConvertToBM(uow.UserPersonalInfomationRepository.GetByID(id));
         }
 
-       
+         public UserPersonalInformationBM GetPersonalInformationByUserId(int id)
+         {
+             return ConvertToBM(uow.UserPersonalInfomationRepository.Find(a=>a.UserId==id).FirstOrDefault());
+         }
          public void Update(UserPersonalInformationBM model)
         {
             uow.UserPersonalInfomationRepository.Update(ConvertToDM(model));

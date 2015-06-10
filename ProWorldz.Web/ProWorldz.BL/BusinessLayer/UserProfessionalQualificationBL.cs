@@ -35,6 +35,11 @@ namespace ProWorldz.BL.BusinessLayer
             return ConvertToBM(uow.UserProfessionalQualificationRepository.GetByID(id));
         }
 
+        public List<UserProfessionalQualificationBM> GetProfessionalQualificationByUserId(int id)
+        {
+            return  uow.UserProfessionalQualificationRepository.Find(k=>k.UserId==id).ConvertAll<UserProfessionalQualificationBM>(new Converter<UserProfessionalQualification, UserProfessionalQualificationBM>(ConvertToBM));
+        }
+
         public void CreateProfessionalQualification(UserProfessionalQualificationBM model)
         {
             uow.UserProfessionalQualificationRepository.Add(ConvertToDM(model));

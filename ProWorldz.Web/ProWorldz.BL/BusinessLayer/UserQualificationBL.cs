@@ -33,7 +33,10 @@ namespace ProWorldz.BL.BusinessLayer
         {
             return ConvertToBM(uow.UserQualificationRepository.GetByID(id));
         }
-
+         public List<UserQualificatinBM> GetUserQualificatinByUserId(int id)
+         {
+             return uow.UserQualificationRepository.Find(d=>d.UserId==id).ConvertAll<UserQualificatinBM>(new Converter<UserQualification, UserQualificatinBM>(ConvertToBM));
+         }
          public void CreateUserQualificatin(UserQualificatinBM model)
         {
             uow.UserQualificationRepository.Add(ConvertToDM(model));

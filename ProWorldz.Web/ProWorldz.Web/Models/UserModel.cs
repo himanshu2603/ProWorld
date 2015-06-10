@@ -20,6 +20,13 @@ namespace ProWorldz.Web.Models
 
         public List<UserPostBM> UserPostList { get; set; }
     }
+
+    public class ViewProfileModel : BaseModel
+    {
+        
+    }
+
+
     public class ProfileModel : BaseModel
     {
         public UserGeneralInformationBM UserGeneralInformationModel { get; set; }

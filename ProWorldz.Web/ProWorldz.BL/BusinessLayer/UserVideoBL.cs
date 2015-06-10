@@ -33,6 +33,11 @@ namespace ProWorldz.BL.BusinessLayer
             return ConvertToBM(uow.UserVideoRepository.GetByID(id));
         }
 
+        public UserVideoBM GetByUserId(int id)
+        {
+            return ConvertToBM(uow.UserVideoRepository.Find(j=>j.UserId==id).FirstOrDefault());
+        }
+
     
 
         public void Update(UserVideoBM model)

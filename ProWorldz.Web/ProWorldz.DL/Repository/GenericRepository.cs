@@ -27,12 +27,12 @@ namespace ProWorldz.DL.Repository
 
         public List<TEntity> GetAll()
         {
-            return DbSet.ToList();
+            return DbSet.AsNoTracking().ToList();
         }
 
         public List<TEntity> Find(System.Linq.Expressions.Expression<Func<TEntity, bool>> expression = null)
         {
-            return DbSet.Where(expression).ToList();
+            return DbSet.AsNoTracking().Where(expression).ToList();
         }
 
         public void Add(TEntity entity)
@@ -43,10 +43,10 @@ namespace ProWorldz.DL.Repository
 
         public void Update(TEntity entity)
         {
-          //  DbSet.Attach(entity);
+            DbSet.Attach(entity);
             
             Context.Entry(entity).State = EntityState.Modified;
-            Context.SaveChanges();
+            //Context.SaveChanges();
         }
 
         public void Delete(int id)
