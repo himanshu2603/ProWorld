@@ -68,10 +68,14 @@ namespace ProWorldz.Web.Controllers
         }
         public JsonResult GetUserGeneralDetail()
         {
+            CommunityBL communityBL=new CommunityBL();
             UserBM CurrentUser = (UserBM)Session["User"];
             UserGeneralInformationBM UserGeneralInformationBM=new UserGeneralInformationBM();
             if (CurrentUser != null)
+            {
                 UserGeneralInformationBM = UserGeneralInformationBL.GetGeneralInformationByUserId(CurrentUser.Id);
+                UserGeneralInformationBM.SubCommunityName = communityBL.GetCommunityById(UserGeneralInformationBM.SubCommunityId).Name;
+            }
             return Json(UserGeneralInformationBM, JsonRequestBehavior.AllowGet);
         }
 
@@ -108,6 +112,7 @@ namespace ProWorldz.Web.Controllers
             UserVideoBM UserVideoBM = new UserVideoBM();
             if (CurrentUser != null)
                 UserVideoBM = UserVideoBL.GetByUserId(CurrentUser.Id);
+            
             return Json(UserVideoBM, JsonRequestBehavior.AllowGet);
         }
 

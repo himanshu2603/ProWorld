@@ -65,6 +65,7 @@ namespace ProWorldz.BL.BusinessLayer
 
          private UserGeneralInformationBM ConvertToBM(UserGeneralInfomation model)
         {
+
             return new UserGeneralInformationBM()
             {
                 Id = model.Id,
@@ -75,8 +76,8 @@ namespace ProWorldz.BL.BusinessLayer
               CreationDate=model.CreationDate,
                 UserId = model.UserId,
                 ModifiedBy = model.ModifiedBy,
-                ModificationDate = model.ModificationDate
-
+                ModificationDate = model.ModificationDate,
+                CommunityName=model.Community.Name
               
             };
         }

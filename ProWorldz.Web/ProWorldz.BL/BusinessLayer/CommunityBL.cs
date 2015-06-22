@@ -29,18 +29,18 @@ namespace ProWorldz.BL.BusinessLayer
             return uow.CommunityRepository.GetAll().ConvertAll<CommunityBM>(new Converter<Community, CommunityBM>(ConvertToBM));
         }
 
+        public CommunityBM GetCommunityById(int id)
+        {
+            return ConvertToBM(uow.CommunityRepository.GetByID(id));
+        }
+
         public CommunityBM GetUserById(int id)
         {
             return ConvertToBM(uow.CommunityRepository.GetByID(id));
         }
 
-        public void CreateUser(CommunityBM model)
-        {
-            uow.CommunityRepository.Add(ConvertToDM(model));
-            uow.Save();
-        }
-
-        public void UpdateUser(CommunityBM model)
+       
+        public void Update(CommunityBM model)
         {
             uow.CommunityRepository.Update(ConvertToDM(model));
             uow.Save();
